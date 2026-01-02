@@ -1,0 +1,80 @@
+# Configuración del sitio
+title: "dataXbi"
+description: "Te ayudamos a transformar tus datos en soluciones"
+url: "https://dataxbi.github.io"
+baseurl: "/website"
+lang: es
+
+# Información de la marca
+brand:
+  name: "dataXbi"
+  tagline: "Te ayudamos a transformar tus datos en soluciones"
+  legal: "dataXbi es una marca comercial registrada. Servicios prestados por profesionales autónomos."
+
+# Socios
+team:
+  - name: "Nelson López Centeno"
+    linkedin: "https://www.linkedin.com/in/nelson-lopez-centeno/"
+  - name: "Diana Aguilera Reyna"
+    linkedin: "https://www.linkedin.com/in/diana-aguilera-reyna/"
+
+# Redes sociales
+social:
+  linkedin: "https://www.linkedin.com/company/dataxbi/"
+  youtube: "https://www.dataxbi.com/youtube"
+  github: "https://github.com/dataxbi/"
+  instagram: "https://www.instagram.com/dataxbi/"
+  twitter: "https://twitter.com/dataXbiTW"
+
+# Navegación principal
+navigation:
+  - title: "Formación"
+    url: "/formacion/"
+  - title: "Servicios"
+    url: "/servicios/"
+  - title: "Blog"
+    url: "/blog/"
+  - title: "Quiénes somos"
+    url: "/quienes-somos/"
+  - title: "Contacto"
+    url: "/contacto/"
+
+# Configuración de construcción
+markdown: kramdown
+permalink: /blog/:year/:month/:title/
+timezone: Europe/Madrid
+
+# Colecciones
+collections:
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:title/
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-redirect-from
+
+# Exclusiones
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - README.md
+  - .github/
+
+# Configuración SEO
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "dataXbi"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
