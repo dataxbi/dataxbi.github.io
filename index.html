@@ -1,0 +1,116 @@
+---
+layout: home
+title: "dataXbi - Te ayudamos a transformar tus datos en soluciones"
+description: "Formación y servicios profesionales en Microsoft Fabric. Libro, talleres en vivo y consultoría especializada."
+---
+
+<!-- Hero Section -->
+<section class="section-hero">
+  <div class="container">
+    <h1>{{ site.brand.tagline }}</h1>
+    <p class="subtitle">Especialistas en Microsoft Fabric: formación práctica y servicios profesionales para transformar tus datos en soluciones reales</p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+      {% include cta-button.html text="Ver formación" url="/formacion/" %}
+      {% include cta-button.html text="Contactar" url="/contacto/" style="secondary" %}
+    </div>
+  </div>
+</section>
+
+<!-- Qué hacemos -->
+<section>
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 3rem;">Qué hacemos</h2>
+    <div class="card-grid">
+      
+      <div class="card">
+        <h3>📚 Formación</h3>
+        <p>Libro sobre Microsoft Fabric y talleres en vivo para dominar la plataforma desde cero hasta un nivel avanzado.</p>
+        {% include cta-button.html text="Ver formación" url="/formacion/" %}
+      </div>
+      
+      <div class="card">
+        <h3>💼 Servicios</h3>
+        <p>Proyectos completos con Microsoft Fabric y consultoría técnica por bolsas de horas para tu equipo.</p>
+        {% include cta-button.html text="Ver servicios" url="/servicios/" %}
+      </div>
+      
+      <div class="card">
+        <h3>✍️ Blog</h3>
+        <p>Contenido gratuito y recursos de la comunidad sobre Microsoft Fabric, Power BI y análisis de datos.</p>
+        {% include cta-button.html text="Ver blog" url="/blog/" %}
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- Libro destacado -->
+<section style="background-color: var(--color-bg-light);">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+      <div>
+        <h2>Libro: Microsoft Fabric de la A a la Z</h2>
+        <p>Una guía completa y práctica para dominar Microsoft Fabric. Desde conceptos fundamentales hasta implementaciones avanzadas.</p>
+        <ul style="margin: 2rem 0; line-height: 2;">
+          <li>✓ Contenido actualizado y práctico</li>
+          <li>✓ Ejemplos reales del día a día</li>
+          <li>✓ Para todos los niveles</li>
+          <li>✓ Soporte continuo</li>
+        </ul>
+        {% include cta-button.html text="Más sobre el libro" url="/formacion/" %}
+      </div>
+      <div style="text-align: center; color: #999;">
+        [Imagen del libro]
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Taller en vivo -->
+<section class="cta-section">
+  <div class="container">
+    <h2>🎓 Próximo taller en vivo</h2>
+    <p>Aprende Microsoft Fabric en directo con casos prácticos y resuelve tus dudas en tiempo real</p>
+    {% include cta-button.html text="Ver próximo taller" url="/formacion/" %}
+  </div>
+</section>
+
+<!-- Últimos artículos del blog -->
+<section>
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 3rem;">Últimos artículos</h2>
+    
+    <div class="card-grid">
+      {% assign recent_posts = site.posts | limit: 3 %}
+      {% if recent_posts.size > 0 %}
+        {% for post in recent_posts %}
+        <div class="card">
+          <div class="post-meta">{{ post.date | date: "%d/%m/%Y" }}</div>
+          <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+          <p>{{ post.excerpt | strip_html | truncate: 150 }}</p>
+          <a href="{{ site.baseurl }}{{ post.url }}">Leer más →</a>
+        </div>
+        {% endfor %}
+      {% else %}
+        <div class="card" style="grid-column: 1 / -1; text-align: center;">
+          <p>Próximamente publicaremos contenido del blog. Mantente atento.</p>
+        </div>
+      {% endif %}
+    </div>
+    
+    {% if recent_posts.size > 0 %}
+    <div style="text-align: center; margin-top: 3rem;">
+      {% include cta-button.html text="Ver todos los artículos" url="/blog/" style="secondary" %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<!-- CTA Final -->
+<section class="cta-section">
+  <div class="container">
+    <h2>¿Listo para transformar tus datos?</h2>
+    <p>Te ayudamos a aprovechar todo el potencial de Microsoft Fabric</p>
+    {% include cta-button.html text="Solicitar reunión" url="/contacto/" %}
+  </div>
+</section>
