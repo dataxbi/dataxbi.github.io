@@ -1,0 +1,78 @@
+---
+layout: page
+title: "Quiénes somos"
+description: "Conoce a las personas detrás de dataXbi: profesionales especializados en Microsoft Fabric."
+permalink: /quienes-somos/
+---
+
+<!-- Introducción -->
+<section style="padding: 2rem 0;">
+  <div class="container" style="max-width: 800px; text-align: center;">
+    <p style="font-size: 1.25rem; line-height: 1.8; color: var(--color-text-light);">
+      <strong>dataXbi</strong> es una marca comercial bajo la que dos profesionales autónomos ponemos a tu disposición nuestra experiencia en Microsoft Fabric, Power BI y análisis de datos.
+    </p>
+    <p style="font-size: 1.125rem; line-height: 1.8; color: var(--color-text-light); margin-top: 1.5rem;">
+      Trabajamos contigo de forma cercana y profesional, sin estructuras corporativas, para ayudarte a transformar tus datos en soluciones reales.
+    </p>
+  </div>
+</section>
+
+<!-- Perfiles -->
+<section style="padding: 3rem 0;">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem; max-width: 900px; margin: 0 auto;">
+      
+      {% for member in site.team %}
+      <div class="card" style="text-align: center;">
+        <div style="width: 150px; height: 150px; margin: 0 auto 1.5rem; background-color: var(--color-bg-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #999;">
+          [Foto]
+        </div>
+        <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">{{ member.name }}</h2>
+        <p style="color: var(--color-text-light); margin-bottom: 1.5rem;">Especialista en Microsoft Fabric</p>
+        <a href="{{ member.linkedin }}" target="_blank" rel="noopener" class="btn btn-secondary">
+          Ver perfil en LinkedIn →
+        </a>
+      </div>
+      {% endfor %}
+      
+    </div>
+  </div>
+</section>
+
+<!-- Nuestra filosofía -->
+<section style="background-color: var(--color-bg-light); padding: 3rem 0;">
+  <div class="container" style="max-width: 800px;">
+    <h2 style="text-align: center; margin-bottom: 2rem;">Nuestra filosofía</h2>
+    
+    <div style="display: grid; gap: 2rem;">
+      <div>
+        <h3>🤝 Cercanía y profesionalidad</h3>
+        <p>Trabajamos directamente contigo, sin intermediarios. Colaboramos como parte de tu equipo para entender tus necesidades reales.</p>
+      </div>
+      
+      <div>
+        <h3>🎯 Foco en resultados prácticos</h3>
+        <p>No nos quedamos en teoría: te ayudamos a implementar soluciones que funcionen en producción y aporten valor desde el primer día.</p>
+      </div>
+      
+      <div>
+        <h3>📚 Formación continua</h3>
+        <p>Microsoft Fabric evoluciona rápido. Nos mantenemos actualizados constantemente para ofrecerte lo mejor de la plataforma.</p>
+      </div>
+      
+      <div>
+        <h3>🌐 Comunidad</h3>
+        <p>Compartimos conocimiento abiertamente a través del blog, redes sociales y eventos. Creemos en aprender y crecer juntos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Final -->
+<section class="cta-section">
+  <div class="container">
+    <h2>¿Quieres conocernos mejor?</h2>
+    <p>Cuéntanos en qué te podemos ayudar</p>
+    {% include cta-button.html text="Contactar" url="/contacto/" %}
+  </div>
+</section>
