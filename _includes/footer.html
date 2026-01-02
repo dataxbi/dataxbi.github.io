@@ -1,0 +1,35 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      
+      <div class="footer-section">
+        <p class="tagline">{{ site.brand.tagline }}</p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Navegación</h3>
+        <ul class="footer-nav">
+          {% for item in site.navigation %}
+          <li><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Síguenos</h3>
+        <ul class="social-links">
+          <li><a href="{{ site.social.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="{{ site.social.youtube }}" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="{{ site.social.github }}" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="{{ site.social.instagram }}" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="{{ site.social.twitter }}" target="_blank" rel="noopener">X/Twitter</a></li>
+        </ul>
+      </div>
+      
+    </div>
+    
+    <div class="footer-legal">
+      <p>{{ site.brand.legal }}</p>
+    </div>
+  </div>
+</footer>

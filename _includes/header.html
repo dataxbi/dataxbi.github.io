@@ -1,0 +1,28 @@
+<header class="site-header">
+  <div class="container">
+    <div class="header-content">
+      <a href="{{ site.baseurl }}/" class="logo">
+        <strong>{{ site.brand.name }}</strong>
+      </a>
+      
+      <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+          {% for item in site.navigation %}
+          <li>
+            <a href="{{ site.baseurl }}{{ item.url }}" {% if page.url == item.url %}aria-current="page"{% endif %}>
+              {{ item.title }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+        <a href="{{ site.baseurl }}/contacto/" class="btn btn-primary">Solicitar reunión</a>
+      </nav>
+    </div>
+  </div>
+</header>

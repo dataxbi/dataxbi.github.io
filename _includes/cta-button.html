@@ -1,0 +1,21 @@
+{% if include.text %}
+  {% assign button_text = include.text %}
+{% else %}
+  {% assign button_text = "Más información" %}
+{% endif %}
+
+{% if include.url %}
+  {% assign button_url = include.url %}
+{% else %}
+  {% assign button_url = "/contacto/" %}
+{% endif %}
+
+{% if include.style %}
+  {% assign button_style = include.style %}
+{% else %}
+  {% assign button_style = "primary" %}
+{% endif %}
+
+<a href="{{ site.baseurl }}{{ button_url }}" class="btn btn-{{ button_style }}">
+  {{ button_text }}
+</a>
