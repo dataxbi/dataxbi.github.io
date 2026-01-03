@@ -261,6 +261,11 @@ section {
   padding: var(--spacing-xl) 0;
 }
 
+.section-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 .section-hero {
   text-align: center;
   padding: var(--spacing-xl) 0;
@@ -375,10 +380,7 @@ section {
 
 .cta-section {
   background-color: var(--color-bg-light);
-  text-align: center;
-  padding: var(--spacing-xl);
-  border-radius: 8px;
-  margin: var(--spacing-xl) 0;
+  text-align: left;
 }
 
 .cta-section h2 {
