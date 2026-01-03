@@ -411,14 +411,32 @@ section {
 @media (max-width: 768px) {
   :root {
     --font-size-base: 14px;
+    --spacing-xl: 2.5rem;
+    --spacing-lg: 2rem;
   }
   
   h1 { font-size: 2rem; }
-  h2 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
   h3 { font-size: 1.25rem; }
   
+  section {
+    padding: var(--spacing-lg) 0;
+  }
+  
+  .section-hero {
+    padding: var(--spacing-lg) 0;
+  }
+  
   .section-hero h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
+  }
+  
+  .section-hero .subtitle {
+    font-size: 1rem;
+  }
+  
+  .section-content {
+    padding: 0 var(--spacing-sm);
   }
   
   .menu-toggle {
@@ -452,6 +470,11 @@ section {
   
   .card-grid {
     grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
+  
+  .card {
+    padding: var(--spacing-sm);
   }
   
   .footer-content {
@@ -460,7 +483,11 @@ section {
   
   .libro-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: var(--spacing-md);
+  }
+  
+  .libro-grid img {
+    max-width: 250px !important;
   }
 }
 
