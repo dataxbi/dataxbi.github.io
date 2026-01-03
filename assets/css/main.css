@@ -263,7 +263,7 @@ section {
 
 .section-hero {
   text-align: center;
-  padding: var(--spacing-xl) 0;
+  padding: var(--spacing-lg) 0 var(--spacing-md) 0;
 }
 
 .section-hero h1 {
