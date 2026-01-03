@@ -154,13 +154,21 @@ a:hover {
 }
 
 .logo {
+  display: inline-flex;
+  align-items: center;
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-text);
 }
 
+.logo-img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
 .logo:hover {
-  color: var(--color-primary);
+  opacity: 0.8;
 }
 
 .menu-toggle {
