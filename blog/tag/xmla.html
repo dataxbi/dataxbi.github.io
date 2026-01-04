@@ -1,0 +1,10 @@
+---
+layout: page
+title: "Posts sobre xmla"
+permalink: /blog/tag/xmla/
+---
+
+<div class="blog-list">
+    <p>Mostrando <strong>xmla</strong> (3 posts) - <a href="/blog/"> Volver al blog</a></p>
+    {% for post in site.posts %}{% if post.tags contains "xmla" %}<article class="blog-item"><h2><a href="{{ post.url }}">{{ post.title }}</a></h2><p class="post-meta">{{ post.date | date: "%d/%m/%Y" }}{% if post.author %} → {{ post.author }}{% endif %}</p><p>{{ post.excerpt | strip_html | truncate: 200 }}</p><a href="{{ post.url }}">Leer mas</a></article>{% endif %}{% endfor %}
+</div>
