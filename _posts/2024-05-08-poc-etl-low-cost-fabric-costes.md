@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "PoC ETL low cost con Fabric â€“ Costes"
+title: "PoC ETL low cost con Fabric - Costes"
 date: 2024-05-08
 author: "Nelson López Centeno"
 categories: 

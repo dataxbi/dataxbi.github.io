@@ -18,11 +18,11 @@ Comparto un vídeo explicando la función DAX TREATAS, que ha sido mi contribuci
 
 El modelo y los ejemplos están disponibles en [GitHub](https://github.com/dataxbi/dax)
 
-Los conceptos y los ejemplos expuestos en el vídeo están basados en la entrada de blog de Alberto Ferrari [**â€œUnderstanding data lineage in DAXâ€œ**](https://www.sqlbi.com/articles/understanding-data-lineage-in-dax/)
+Los conceptos y los ejemplos expuestos en el vídeo están basados en la entrada de blog de Alberto Ferrari [**"Understanding data lineage in DAX"**](https://www.sqlbi.com/articles/understanding-data-lineage-in-dax/)
 
 También hago referencia a:  
   
-[â€œPropagating filters using TREATAS in DAXâ€ de Marco Russo](https://www.sqlbi.com/articles/propagate-filters-using-treatas-in-dax/)  
+["Propagating filters using TREATAS in DAX" de Marco Russo](https://www.sqlbi.com/articles/propagate-filters-using-treatas-in-dax/)  
   
 [Video TREATAS de Ruth Pozuelo (curbal.com)](https://www.youtube.com/watch?v=pbAL_zG-Pgo)
 

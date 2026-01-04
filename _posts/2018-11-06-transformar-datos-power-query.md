@@ -85,7 +85,7 @@ Podemos configurar los pasos de la consulta usando el menú contextual asociado 
 
 #### La barra de fórmulas
 
-Al seleccionar un paso en el panel de configuración de consulta, podemos ver que en la barra de fórmulas aparece una expresión que comienza con el signo igual â€œ=â€.
+Al seleccionar un paso en el panel de configuración de consulta, podemos ver que en la barra de fórmulas aparece una expresión que comienza con el signo igual \"=\".
 
 [![image](/assets/images/posts/2018-11-06-transformar-datos-power-query/image_thumb-5.png "image")](https://www.dataxbi.com/wp-content/uploads/2018/11/image-5.png)
 

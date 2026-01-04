@@ -107,7 +107,7 @@ IImagen10. Filas resultantes con la columna LocationId vacía
 
 Si observamos la columna Location en la imagen 10 vemos que en todos los casos aparece el mismo barrio, pero escrito de diferentes formas La Bonanova o Bonanova.
 
-Si buscamos en la tabla Location, en la columna Location la palabra Bonanova vemos que el barrio se llama Sant Gervasi â€“ la Bonanova por lo que tenemos un problema. Ocurre una inconsistencia de los datos, los datos existen pero no están escritos siempre de la misma forma. Este es un error que es muy común cuando se introducen datos manualmente y que podemos encontrarnos frecuentemente.
+Si buscamos en la tabla Location, en la columna Location la palabra Bonanova vemos que el barrio se llama Sant Gervasi - la Bonanova por lo que tenemos un problema. Ocurre una inconsistencia de los datos, los datos existen pero no están escritos siempre de la misma forma. Este es un error que es muy común cuando se introducen datos manualmente y que podemos encontrarnos frecuentemente.
 
 ![Nombre del barrio en la tabla Location](/assets/images/posts/2018-11-19-combinar-consultas-coincidencias-aproximadas/Imagen11-300x182.png)
 

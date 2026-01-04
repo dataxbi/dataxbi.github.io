@@ -23,11 +23,11 @@ Para conectarte a un origen de datos desde Power BI Desktop, debes seleccionar l
 
 [![clip_image003_thumb](/assets/images/posts/2018-10-23-conectarse-origenes-datos-power-bi-desktop-excel-2016/clip_image003_thumb_thumb.jpg "clip_image003_thumb")](https://www.dataxbi.com/wp-content/uploads/2018/10/clip_image003_thumb.jpg)
 
-Se muestra un menú que contiene una lista de los orígenes más usados y un botón (Másâ€¦) para acceder al resto.
+Se muestra un menú que contiene una lista de los orígenes más usados y un botón (Más...) para acceder al resto.
 
 [![clip_image005_thumb](/assets/images/posts/2018-10-23-conectarse-origenes-datos-power-bi-desktop-excel-2016/clip_image005_thumb_thumb.jpg "clip_image005_thumb")](https://www.dataxbi.com/wp-content/uploads/2018/10/clip_image005_thumb.jpg)
 
-Si oprimes el botón Másâ€¦ accederás a una ventana que tiene dos paneles. El de la izquierda muestra las distintas categorías de fuentes de datos y cuando seleccionas una de ellas, en el de la derecha se mostrarán los orígenes disponibles para esa categoría.
+Si oprimes el botón Más... accederás a una ventana que tiene dos paneles. El de la izquierda muestra las distintas categorías de fuentes de datos y cuando seleccionas una de ellas, en el de la derecha se mostrarán los orígenes disponibles para esa categoría.
 
 [![clip_image007_thumb](/assets/images/posts/2018-10-23-conectarse-origenes-datos-power-bi-desktop-excel-2016/clip_image007_thumb_thumb.jpg "clip_image007_thumb")](https://www.dataxbi.com/wp-content/uploads/2018/10/clip_image007_thumb.jpg)
 
@@ -157,7 +157,7 @@ Los orígenes marcados con (\*) no están disponibles en Microsoft Excel.
 
 Para acceder a estos orígenes debes tener creada una cuenta en el portal de Azure y debes tener configurado algunos de estos servicios.
 
-En la siguiente imagen nos conectaremos a una base de datos de Azure. Observe que al nombre del servidor se añade el sufijo â€œ.database.windows.netâ€.
+En la siguiente imagen nos conectaremos a una base de datos de Azure. Observe que al nombre del servidor se añade el sufijo \".database.windows.net\".
 
 [![clip_image031_thumb](/assets/images/posts/2018-10-23-conectarse-origenes-datos-power-bi-desktop-excel-2016/clip_image031_thumb_thumb.jpg "clip_image031_thumb")](https://www.dataxbi.com/wp-content/uploads/2018/10/clip_image031_thumb.jpg)
 
