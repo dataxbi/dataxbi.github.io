@@ -63,7 +63,7 @@ description: "Formación y servicios profesionales en Microsoft Fabric y Power B
     <h2 style="text-align: center; margin-bottom: 3rem;">Últimos artículos</h2>
     
     <div class="card-grid">
-      {% assign recent_posts = site.posts | limit: 3 %}
+      {% assign recent_posts = site.posts | slice: 0, 3 %}
       {% if recent_posts.size > 0 %}
         {% for post in recent_posts %}
         <div class="card">
