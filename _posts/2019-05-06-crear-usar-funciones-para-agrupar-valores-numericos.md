@@ -186,7 +186,9 @@ Supongamos que la variable tabla contiene la siguiente tabla de valores
 
 Si aplicamos la función Table.ToRows() a esta tabla convertirá cada fila en una lista de valores encerrados entre llaves y separados por coma y cada fila estará anidada como valores separados por coma dentro de otra lista. Es decir, convierte la tabla en una lista de filas que a su vez son listas. El resultado se le asigna a la variable values.
 
+{% raw %}
 values = {{1,2}, {3,1}, {5,4}}
+{% endraw %}
 
 ##### Línea 8:
 
@@ -208,6 +210,7 @@ En el siguiente ejemplo partimos del resultado del ejemplo anterior
 
 ###### Ejemplo2: Uso de la función List.Select()
 
+{% raw %}
 values = {{1,2}, {3,1}, {5,4}}
 
 numero = 4
@@ -215,6 +218,7 @@ numero = 4
 _{0} primera columna de la tabla o elemento de la lista
 
 = List.Select({{1,2}, {3,1}, {5,4}}, each _{0} < 4) = {{1,2}, {3,1}}
+{% endraw %}
 
 La función compara 1, 3 y 5 con 4 y devuelve solo 1 y 3
 
@@ -234,13 +238,15 @@ Continuando con el ejemplo anterior
 
 ###### Ejemplo3: Uso de la función List.Sort()
 
-values\_selected={{1,2}, {3,1}}
+{% raw %}
+values_selected={{1,2}, {3,1}}
 
 _{1}: Elemento por el que se ordenará, 1
 
 Order.Ascending: Ordenamiento que se aplicará, Ascendente
 
 = List.Sort({{1,2}, {3,1}}, {each _{1},Order.Ascending}) = {{3,1}, {1,2}}
+{% endraw %}
 
 ##### Línea 12:
 
@@ -258,13 +264,17 @@ List.Last() --> función Power Query M que devuelve el último conjunto de eleme
 
 Si al resultado de la función List.Sort() le aplicamos la función List.Last()
 
+{% raw %}
 List.Last({{3,1}, {1,2}}) = {1,2}
+{% endraw %}
 
 Solo nos queda una fila de la tabla y debemos escoger el elemento de la tabla que necesitamos.
 
 {} --> Devuelve el elemento de la lista en la posición especificada
 
+{% raw %}
 List.Last({{3,1}, {1,2}}){0} = 1
+{% endraw %}
 
 Result = 1
 

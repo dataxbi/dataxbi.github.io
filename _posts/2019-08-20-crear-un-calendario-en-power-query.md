@@ -388,7 +388,9 @@ Esta expresión devuelve la última fecha de la columna especificada.
 - Combinamos los valores FI y FF en una lista en la línea 6 mediante la expresión:
 
 ```
+{% raw %}
 Lista = List.Combine({{FI},{FF}})
+{% endraw %}
 ```
 
 Esta expresión devuelve una lista que contiene el primer y el ultimo valor de la columna fecha pasada como parámetro a la función.

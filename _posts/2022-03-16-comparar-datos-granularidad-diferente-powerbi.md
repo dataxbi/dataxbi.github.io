@@ -115,15 +115,21 @@ Este es el código Power Query M completo de la consulta:
 ```
 let
     Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("jdTBCsIwDIDhd9l5hSRN0nqcgkwEkU1P4vu/htVbm0A8dFD4yVco3es1ERBO8/Rdl33dEhCDsOa2F4DpPXfJ7bRcU1GFlnHbs03GKSxdQm3dt+WRWAULSbEQxRDFUPam1DhBkxgodwnHkJugSQJI/kuO531NUpCyqtizSHwWjSGNIY2hEkMlhkoM1RiqMVQ9qJ9ycCAFk4yQoEkMVPqnBu3zXE7HxJAPStmRfs04Z6B+TfCUEB1Lqm2CW0D3/0B94z3t0SLvrtA25jxf6/0B", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Año = _t, Mes = _t, #"Codigo Producto" = _t, Costo = _t]),
+{% raw %}
     #"Columnas combinadas Año Mes" = Table.CombineColumns(Table.TransformColumnTypes(Origen, {{"Año", type text}, {"Mes", type text}}, "es-ES"),{"Año", "Mes"},Combiner.CombineTextByDelimiter("-", QuoteStyle.None),"Fecha Inicio Mes"),
     #"Tipo cambiado" = Table.TransformColumnTypes(#"Columnas combinadas Año Mes",{{"Fecha Inicio Mes", type date}, {"Codigo Producto", type text}, {"Costo", Currency.Type}}),
+{% endraw %}
     #"Columna Días del mes" = Table.AddColumn(#"Tipo cambiado", "Días del mes", each Date.DaysInMonth([Fecha Inicio Mes]), Int64.Type),
     #"Columna Fecha con lista dias del mes" = Table.AddColumn(#"Columna Días del mes", "Fecha", each List.Dates([Fecha Inicio Mes],[Días del mes],#duration(1,0,0,0))),
     #"Se expandió Fecha" = Table.ExpandListColumn(#"Columna Fecha con lista dias del mes", "Fecha"),
+{% raw %}
     #"Tipo cambiado Fecha" = Table.TransformColumnTypes(#"Se expandió Fecha",{{"Fecha", type date}}),
+{% endraw %}
     #"Costo prorrateado" = Table.AddColumn(#"Tipo cambiado Fecha", "Costo Prorrateado", each [Costo] / [Días del mes], Currency.Type),
     #"Columnas quitadas" = Table.RemoveColumns(#"Costo prorrateado",{"Costo", "Días del mes", "Fecha Inicio Mes"}),
+{% raw %}
     #"Columnas con nombre cambiado" = Table.RenameColumns(#"Columnas quitadas",{{"Costo Prorrateado", "Costo"}}),
+{% endraw %}
     #"Columna Medio" = Table.AddColumn(#"Columnas con nombre cambiado", "Medio", each "Carteles", type text)
 in
     #"Columna Medio"
