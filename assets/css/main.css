@@ -405,6 +405,43 @@ section {
 }
 
 /* ============================================
+   LIBRO DESTACADO
+   ============================================ */
+
+.libro-destacado-section {
+  padding: var(--spacing-lg) 0;
+  background-color: var(--color-bg-light);
+}
+
+.libro-destacado {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  align-items: center;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 250px;
+}
+
+.libro-imagen img {
+  width: 100%;
+  height: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.libro-contenido h2 {
+  margin-bottom: 0.5rem;
+}
+
+.libro-contenido p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* ============================================
    RESPONSIVE
    ============================================ */
 
@@ -488,6 +525,18 @@ section {
   
   .libro-grid img {
     max-width: 250px !important;
+  }
+  
+  .libro-destacado {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    text-align: center;
+  }
+  
+  .libro-imagen img {
+    max-width: 200px;
+    margin: 0 auto;
   }
 }
 
