@@ -67,7 +67,10 @@ description: "Formación y servicios profesionales en Microsoft Fabric y Power B
       {% if recent_posts.size > 0 %}
         {% for post in recent_posts %}
         <div class="card">
-          <div class="post-meta">{{ post.date | date: "%d/%m/%Y" }}</div>
+          <div class="post-meta">
+            {{ post.date | date: "%d/%m/%Y" }}
+            {% if post.author %} • por {{ post.author }}{% endif %}
+          </div>
           <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
           <p>{{ post.excerpt | strip_html | truncate: 150 }}</p>
           <a href="{{ site.baseurl }}{{ post.url }}">Leer más →</a>
