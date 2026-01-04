@@ -42,9 +42,15 @@ navigation:
     url: "/contacto/"
 
 # Configuración de construcción
+encoding: utf-8
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title/
 timezone: Europe/Madrid
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
 
 # Colecciones
 collections:

@@ -1,0 +1,16 @@
+# Asegurar que todos los archivos de texto mantienen UTF-8
+* text=auto eol=lf
+
+# Archivos markdown
+*.md text eol=lf
+
+# Archivos HTML
+*.html text eol=lf
+
+# Archivos de configuración
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Archivos CSS y JS
+*.css text eol=lf
+*.js text eol=lf
