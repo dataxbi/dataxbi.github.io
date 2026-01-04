@@ -93,7 +93,7 @@ Al seleccionar un paso en el panel de configuración de consulta, podemos ver qu
 
 En la imagen anterior la expresión es la siguiente:
 
-\= Table.RenameColumns(#"Redondeado a la baja",{{"BirthDate", "Edad"}})
+= Table.RenameColumns(#"Redondeado a la baja",{{"BirthDate", "Edad"}})
 
 Es una fórmula escrita en el lenguaje de fórmulas de Power Query, conocido informalmente como **M**. Es un lenguaje funcional que está optimizado para generar consultas altamente flexibles de orígenes de datos diversos, sensible a las mayúsculas y minúsculas, similar a F#.
 

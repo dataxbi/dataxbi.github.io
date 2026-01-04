@@ -147,7 +147,7 @@ Veamos cada uno de los elementos de la declaración.
 
 set\_range --> variable a la que se le asigna la expresión a la derecha del símbolo â€œ=â€. En este caso la expresión es la declaración de la función. La sintaxis de la declaración de una función la vimos en una [entrada anterior](https://www.dataxbi.com/blog/2018/12/18/crear-funciones-personalizadas-en-power-query/)
 
-\= --> operador de asignación
+= --> operador de asignación
 
 () --> Los paréntesis encierran los parámetros de la función que en este caso son 2.
 
@@ -155,7 +155,7 @@ tabla --> variable de tipo table (as table). En esta variable pasaremos el nombr
 
 numero --> variable de tipo numérico (as number). En esta variable pasaremos los valores numéricos que necesitamos clasificar.
 
-\=> --> indica el comienzo del cuerpo de la función
+=> --> indica el comienzo del cuerpo de la función
 
 ##### Línea 4:
 
@@ -212,9 +212,9 @@ values = {{1,2}, {3,1}, {5,4}}
 
 numero = 4
 
-\_{0} primera columna de la tabla o elemento de la lista
+_{0} primera columna de la tabla o elemento de la lista
 
-\= List.Select({{1,2}, {3,1}, {5,4}}, each \_{0} < 4) = {{1,2}, {3,1}}
+= List.Select({{1,2}, {3,1}, {5,4}}, each _{0} < 4) = {{1,2}, {3,1}}
 
 La función compara 1, 3 y 5 con 4 y devuelve solo 1 y 3
 
@@ -236,11 +236,11 @@ Continuando con el ejemplo anterior
 
 values\_selected={{1,2}, {3,1}}
 
-\_{1}: Elemento por el que se ordenará, 1
+_{1}: Elemento por el que se ordenará, 1
 
 Order.Ascending: Ordenamiento que se aplicará, Ascendente
 
-\= List.Sort({{1,2}, {3,1}}, {each \_{1},Order.Ascending}) = {{3,1}, {1,2}}
+= List.Sort({{1,2}, {3,1}}, {each _{1},Order.Ascending}) = {{3,1}, {1,2}}
 
 ##### Línea 12:
 
