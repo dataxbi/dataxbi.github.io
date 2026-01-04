@@ -93,7 +93,7 @@ Al seleccionar un paso en el panel de configuraci�n de consulta, podemos ver q
 
 En la imagen anterior la expresi�n es la siguiente:
 
-\= Table.RenameColumns(#"Redondeado a la baja",{{"BirthDate", "Edad"}})
+{% raw %}$([char]0x000A)= Table.RenameColumns(#"Redondeado a la baja",{{"BirthDate", "Edad"}})$([char]0x000A){% endraw %}
 
 Es una f�rmula escrita en el lenguaje de f�rmulas de Power Query, conocido informalmente como **M**. Es un lenguaje funcional que est� optimizado para generar consultas altamente flexibles de or�genes de datos diversos, sensible a las may�sculas y min�sculas, similar a F#.
 
