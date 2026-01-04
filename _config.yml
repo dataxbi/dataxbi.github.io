@@ -43,14 +43,14 @@ navigation:
 
 # Configuración de construcción
 markdown: kramdown
-permalink: /blog/:year/:month/:title/
+permalink: /blog/:year/:month/:day/:title/
 timezone: Europe/Madrid
 
 # Colecciones
 collections:
   posts:
     output: true
-    permalink: /blog/:year/:month/:title/
+    permalink: /blog/:year/:month/:day/:title/
 
 # Plugins
 plugins:
