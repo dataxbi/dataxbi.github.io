@@ -14,20 +14,17 @@ layout: default
         <span class="post-author">por {{ page.author }}</span>
         {% endif %}
       </div>
+      {% if page.tags %}
+      <div class="post-tags" style="margin-top: 1rem;">
+        {% for tag in page.tags %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
     </header>
     
     <div class="post-content">
       {{ content }}
     </div>
-    
-    {% if page.tags %}
-    <footer class="post-footer">
-      <div class="post-tags">
-        {% for tag in page.tags %}
-        <span class="tag">{{ tag }}</span>
-        {% endfor %}
-      </div>
-    </footer>
-    {% endif %}
   </div>
 </article>
