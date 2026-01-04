@@ -14,7 +14,7 @@ permalink: /blog/
       <div style="margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--color-border, #e5e7eb);">
         <h3 style="font-size: 1.125rem; margin-bottom: 1rem; color: var(--color-text-light, #6b7280);">Temas populares</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          {% assign popular_tags = "fabric,powerbi,powerquery,dax,etl-low-cost-fabric,azure,synapse,dataviz,powerbi-embedded,python" | split: "," %}
+          {% assign popular_tags = "fabric,powerbi,powerquery,dax,etl-low-cost-fabric,azure,synapse,dataviz,powerbi-embedded,python,video" | split: "," %}
           {% for tag in popular_tags %}
             <a href="{{ site.baseurl }}/blog/tag/{{ tag | slugify }}/" 
                style="padding: 0.5rem 1rem; background-color: var(--color-bg-secondary, #f3f4f6); 
