@@ -2,32 +2,9 @@
 
 Sitio web oficial de dataXbi construido con Jekyll y alojado en GitHub Pages.
 
-## 🚀 Desarrollo local
+🌐 **URL**: https://dataxbi.github.io
 
-### Requisitos previos
-
-- Ruby 2.7 o superior
-- Bundler
-
-### Instalación
-
-```bash
-# Instalar dependencias
-bundle install
-
-# Ejecutar servidor de desarrollo
-bundle exec jekyll serve --livereload
-
-# El sitio estará disponible en http://localhost:4000
-```
-
-### Compilación
-
-```bash
-bundle exec jekyll build
-```
-
-El sitio compilado se generará en la carpeta `_site/`.
+---
 
 ## 📁 Estructura del proyecto
 
@@ -48,66 +25,16 @@ website/
 │   ├── images/        # Imágenes
 │   └── js/            # JavaScript
 ├── blog/              # Página listado del blog
-├── formacion/         # Página de formación
+├── libro-introduccion-fabric/  # Página del libro
+├── taller-introduccion-fabric/ # Página del taller
 ├── servicios/         # Página de servicios
 ├── quienes-somos/     # Página quiénes somos
 ├── contacto/          # Página de contacto
 ├── _config.yml        # Configuración de Jekyll
-├── Gemfile            # Dependencias Ruby
 └── index.html         # Página principal
 ```
 
-## 🌐 Publicación en GitHub Pages
-
-### Configuración inicial
-
-1. **Crear repositorio en GitHub** (si no existe):
-   ```bash
-   # El repositorio debe estar en la organización dataxbi
-   # Nombre sugerido: website
-   ```
-
-2. **Configurar GitHub Pages**:
-   - Ve a Settings → Pages
-   - Source: Deploy from a branch
-   - Branch: `main` (o `master`), carpeta `/ (root)`
-   - Save
-
-3. **Actualizar URLs en `_config.yml`**:
-   
-   **Para testing (GitHub Pages del repo):**
-   ```yaml
-   url: "https://dataxbi.github.io"
-   baseurl: "/website"
-   ```
-   
-   **Para producción (dominio personalizado):**
-   ```yaml
-   url: "https://www.dataxbi.com"
-   baseurl: ""
-   ```
-
-4. **Push al repositorio**:
-   ```bash
-   git remote add origin https://github.com/dataxbi/website.git
-   git push -u origin main
-   ```
-
-### Dominio personalizado (cuando esté listo)
-
-1. Crear archivo `CNAME` en la raíz:
-   ```
-   www.dataxbi.com
-   ```
-
-2. Configurar DNS en tu proveedor:
-   ```
-   CNAME www.dataxbi.com -> dataxbi.github.io
-   ```
-
-3. En GitHub Settings → Pages:
-   - Custom domain: `www.dataxbi.com`
-   - Enforce HTTPS: activado
+---
 
 ## 📝 Crear contenido
 
@@ -143,6 +70,8 @@ permalink: /ruta-url/
 Contenido...
 ```
 
+---
+
 ## 🎨 Personalización
 
 ### Colores
@@ -167,17 +96,25 @@ navigation:
     url: "/nueva-pagina/"
 ```
 
-## ✅ Checklist antes de producción
+---
 
-- [ ] Actualizar `_config.yml` con URL y baseurl correctos
-- [ ] Reemplazar placeholders de imágenes
-- [ ] Actualizar email de contacto si difiere de info@dataxbi.com
-- [ ] Probar todos los enlaces internos
-- [ ] Verificar responsive en móvil
-- [ ] Revisar meta descriptions de todas las páginas
-- [ ] Configurar CNAME para dominio personalizado
-- [ ] Activar HTTPS en GitHub Pages
-- [ ] Probar formularios/enlaces de contacto
+## 🚀 Publicación
+
+GitHub Pages compila automáticamente el sitio en cada push a la rama `main`.
+
+- Los cambios se publican en pocos minutos
+- Verificar el estado en: **Actions** (pestaña del repositorio)
+- URL del sitio: https://dataxbi.github.io
+
+### Dominio personalizado (futuro)
+
+Cuando esté listo para usar un dominio propio:
+
+1. Crear archivo `CNAME` en la raíz con: `www.dataxbi.com`
+2. Configurar DNS (CNAME) apuntando a `dataxbi.github.io`
+3. Actualizar `_config.yml`: `url: "https://www.dataxbi.com"` y `baseurl: ""`
+
+---
 
 ## 📚 Recursos
 
@@ -185,24 +122,22 @@ navigation:
 - [GitHub Pages Docs](https://docs.github.com/es/pages)
 - [Instrucciones del proyecto](.github/copilot-instructions.md)
 
+---
+
 ## 🔧 Solución de problemas
 
 ### El sitio no compila
 
-1. Verificar sintaxis en `_config.yml`
-2. Comprobar front matter de los posts
-3. Ver logs en Actions (GitHub)
-
-### Los estilos no cargan
-
-1. Verificar rutas con `{{ site.baseurl }}`
-2. Limpiar caché: `bundle exec jekyll clean`
+- Verificar sintaxis en `_config.yml`
+- Revisar front matter de los archivos
+- Ver logs en la pestaña **Actions** de GitHub
 
 ### Las imágenes no aparecen
 
-1. Usar rutas: `{{ site.baseurl }}/assets/images/nombre.jpg`
-2. Verificar que las imágenes existan en `assets/images/`
+- Usar rutas: `{{ site.baseurl }}/assets/images/nombre.jpg`
+- Verificar que las imágenes existan en `assets/images/`
 
----
+### Los estilos no cargan
 
-**Nota**: Este sitio está en fase de desarrollo. La migración del blog desde WordPress se realizará en una segunda fase.
+- Verificar todas las rutas que incluyan `{{ site.baseurl }}`
+- Revisar que `assets/css/main.css` exista
