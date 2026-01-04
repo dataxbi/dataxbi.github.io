@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introducci�n a Fabric (v�deo)"
+title: "Introducción a Fabric (vídeo)"
 date: 2024-04-14
 author: "Diana y Nelson (dataXbi)"
 categories: 
@@ -10,7 +10,7 @@ tags:
   - "video"
 ---
 
-V�deo de la charla en l�nea y en vivo del jueves 11 de abril de 2024 donde hicimos una introducci�n a Fabric y hablamos en detalle de los costes.
+Vídeo de la charla en línea y en vivo del jueves 11 de abril de 2024 donde hicimos una introducción a Fabric y hablamos en detalle de los costes.
 
 <!--more-->
 

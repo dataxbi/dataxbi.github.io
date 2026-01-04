@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Conociendo Power BI Embedded (v�deo)"
+title: "Conociendo Power BI Embedded (vídeo)"
 date: 2021-04-30
-author: "Nelson L�pez Centeno"
+author: "Nelson López Centeno"
 categories: 
   - "sin-categoria"
 tags: 
@@ -10,7 +10,7 @@ tags:
   - "video"
 ---
 
-Comparto el v�deo de la charla que present� en el meetup de Power BI de Barcelona el d�a 27 de abril de 2021 sobre Power Bi Embedded.
+Comparto el vídeo de la charla que presenté en el meetup de Power BI de Barcelona el día 27 de abril de 2021 sobre Power Bi Embedded.
 
 <!--more-->
 

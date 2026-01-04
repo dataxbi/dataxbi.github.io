@@ -10,7 +10,7 @@ tags:
   - "tips"
 ---
 
-¿Sabes que puedes usar el editor gratuito Visual Studio Code para editar y formatear las consultas Power Query M?
+Â¿Sabes que puedes usar el editor gratuito Visual Studio Code para editar y formatear las consultas Power Query M?
 
 <!--more-->
 
@@ -18,7 +18,7 @@ tags:
 
 <figcaption>
 
-Visual Studio Code es un editor de c�digo creado por Microsoft que es gratuito y multiplataforma, y que puedes descargar desde [https://code.visualstudio.com/](https://code.visualstudio.com/)
+Visual Studio Code es un editor de código creado por Microsoft que es gratuito y multiplataforma, y que puedes descargar desde [https://code.visualstudio.com/](https://code.visualstudio.com/)
 
 </figcaption>
 
@@ -30,7 +30,7 @@ Visual Studio Code es un editor de c�digo creado por Microsoft que es gratuito
 
 <figcaption>
 
-Una vez instalado Visual Studio Code podemos instalar una extensi�n gratuita para #PowerQueryM creada tambi�n por Microsoft.
+Una vez instalado Visual Studio Code podemos instalar una extensión gratuita para #PowerQueryM creada también por Microsoft.
 
 </figcaption>
 
@@ -42,7 +42,7 @@ Una vez instalado Visual Studio Code podemos instalar una extensi�n gratuita p
 
 <figcaption>
 
-Para instalarla, en Visual Studio Code selecciona el �cono del Marketplace de extensiones y busca la extensi�n con el nombre "Power Query / M Language".
+Para instalarla, en Visual Studio Code selecciona el ícono del Marketplace de extensiones y busca la extensión con el nombre "Power Query / M Language".
 
 </figcaption>
 
@@ -54,8 +54,8 @@ Para instalarla, en Visual Studio Code selecciona el �cono del Marketplace de 
 
 <figcaption>
 
-Con la extensi�n ya instalada, puedes copiar el c�digo M de una consulta Power Query y editarla en Visual Studio Code.  
-Aseg�rate de seleccionar que est�s trabajando con el lenguaje "Power Query Formula Language" para que el c�digo de la consulta se coloree.
+Con la extensión ya instalada, puedes copiar el código M de una consulta Power Query y editarla en Visual Studio Code.  
+Asegúrate de seleccionar que estás trabajando con el lenguaje "Power Query Formula Language" para que el código de la consulta se coloree.
 
 </figcaption>
 
@@ -67,7 +67,7 @@ Aseg�rate de seleccionar que est�s trabajando con el lenguaje "Power Query F
 
 <figcaption>
 
-Puedes formatear el c�digo Power Query M con la combinaci�n de teclas MAYÚSCULA + ALT + F.
+Puedes formatear el código Power Query M con la combinación de teclas MAYÃšSCULA + ALT + F.
 
 </figcaption>
 
@@ -79,7 +79,7 @@ Puedes formatear el c�digo Power Query M con la combinaci�n de teclas MAYÚS
 
 <figcaption>
 
-A medida que vayas escribiendo el c�digo Power Query M, se ir� autocompletando con las funciones y variables disponibles y puedes seleccionarla con la tecla TAB.
+A medida que vayas escribiendo el código Power Query M, se irá autocompletando con las funciones y variables disponibles y puedes seleccionarla con la tecla TAB.
 
 </figcaption>
 
@@ -91,7 +91,7 @@ A medida que vayas escribiendo el c�digo Power Query M, se ir� autocompletan
 
 <figcaption>
 
-Si pasas el rat�n por encima de una funci�n puedes ver su documentaci�n. Tambi�n se validan los tipos de los par�metros de las funciones.
+Si pasas el ratón por encima de una función puedes ver su documentación. También se validan los tipos de los parámetros de las funciones.
 
 </figcaption>
 
@@ -103,7 +103,7 @@ Si pasas el rat�n por encima de una funci�n puedes ver su documentaci�n. T
 
 <figcaption>
 
-Si pasas el rat�n por encima de una variable, puedes ver su tipo de datos y el contenido.
+Si pasas el ratón por encima de una variable, puedes ver su tipo de datos y el contenido.
 
 </figcaption>
 
@@ -115,7 +115,7 @@ Si pasas el rat�n por encima de una variable, puedes ver su tipo de datos y el
 
 <figcaption>
 
-Las consultas Power Query M las puedes guardar en un fichero con extensi�n .pq para poderlas compartir con el resto del equipo o reusar en otro proyecto o incluso usarla en un sistema de control de c�digo, como GIT, para mantener una historia de los cambios.
+Las consultas Power Query M las puedes guardar en un fichero con extensión .pq para poderlas compartir con el resto del equipo o reusar en otro proyecto o incluso usarla en un sistema de control de código, como GIT, para mantener una historia de los cambios.
 
 </figcaption>
 
@@ -127,7 +127,7 @@ Las consultas Power Query M las puedes guardar en un fichero con extensi�n .pq
 
 <figcaption>
 
-Microsoft acaba de sacar otra extensi�n de Visual Studio Code que se llama "Power Query SDK" y que es para crear conectores a la medida. Pero este es un tema m�s avanzado del que hablaremos en otra ocasi�n.
+Microsoft acaba de sacar otra extensión de Visual Studio Code que se llama "Power Query SDK" y que es para crear conectores a la medida. Pero este es un tema más avanzado del que hablaremos en otra ocasión.
 
 </figcaption>
 

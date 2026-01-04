@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introducci�n a Fabric - Flujos de Datos Gen2 (v�deo)"
+title: "Introducción a Fabric - Flujos de Datos Gen2 (vídeo)"
 date: 2024-06-17
 author: "Diana y Nelson (dataXbi)"
 categories: 
@@ -10,7 +10,7 @@ tags:
   - "video"
 ---
 
-V�deo del directo del jueves 13 de junio de 2024 donde hicimos una introducci�n a los Flujos de Datos de Fabric.
+Vídeo del directo del jueves 13 de junio de 2024 donde hicimos una introducción a los Flujos de Datos de Fabric.
 
 <!--more-->
 

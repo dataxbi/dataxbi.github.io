@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "El conjunto de datos de Power BI como fuente de datos (v�deo)"
+title: "El conjunto de datos de Power BI como fuente de datos (vídeo)"
 date: 2021-03-03
 author: "Diana Aguilera Reyna"
 categories: 
@@ -10,9 +10,9 @@ tags:
   - "video"
 ---
 
-Ya est�n disponibles los videos de la #PowerPlatformMadrid!!. Gracias a los organizadores y patrocinadores!!
+Ya están disponibles los videos de la #PowerPlatformMadrid!!. Gracias a los organizadores y patrocinadores!!
 
-Aqu� te dejo el m�o donde te comparto como conectarte a los conjuntos de datos desde #PowerBIDesktop, #Excel, #Teams y #Tableau
+Aquí te dejo el mío donde te comparto como conectarte a los conjuntos de datos desde #PowerBIDesktop, #Excel, #Teams y #Tableau
 
 <!--more-->
 

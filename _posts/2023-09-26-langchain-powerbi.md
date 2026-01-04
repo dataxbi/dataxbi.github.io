@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "LangChain y Power BI (v�deo)"
+title: "LangChain y Power BI (vídeo)"
 date: 2023-09-26
-author: "Nelson L�pez Centeno"
+author: "Nelson López Centeno"
 categories: 
   - "sin-categoria"
 tags: 
@@ -11,7 +11,7 @@ tags:
   - "video"
 ---
 
-V�deo de la demo de un script Python para hacerle preguntas a un conjunto de datos de Power BI con la biblioteca LangChain.
+Vídeo de la demo de un script Python para hacerle preguntas a un conjunto de datos de Power BI con la biblioteca LangChain.
 
 <!--more-->
 

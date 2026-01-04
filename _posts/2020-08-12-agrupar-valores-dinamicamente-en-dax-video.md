@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Agrupar valores din�micamente en DAX (v�deo)"
+title: "Agrupar valores dinámicamente en DAX (vídeo)"
 date: 2020-08-12
 author: "Diana Aguilera Reyna"
 categories: 
@@ -10,7 +10,7 @@ tags:
   - "video"
 ---
 
-Hemos hecho un v�deo con el ejemplo que describimos en la entrada de blog [Agrupar valores din�micamente en DAX](https://www.dataxbi.com/blog/2020/05/13/agrupar-valores-dinamicamente-en-dax/)
+Hemos hecho un vídeo con el ejemplo que describimos en la entrada de blog [Agrupar valores dinámicamente en DAX](https://www.dataxbi.com/blog/2020/05/13/agrupar-valores-dinamicamente-en-dax/)
 
 <!--more-->
 

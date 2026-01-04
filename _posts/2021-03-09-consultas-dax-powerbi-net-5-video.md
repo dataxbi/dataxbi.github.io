@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Ejecutando consultas DAX sobre Power BI desde .NET 5 (v�deo)"
+title: "Ejecutando consultas DAX sobre Power BI desde .NET 5 (vídeo)"
 date: 2021-03-09
-author: "Nelson L�pez Centeno"
+author: "Nelson López Centeno"
 categories: 
   - "sin-categoria"
 tags: 
@@ -12,7 +12,7 @@ tags:
   - "xmla"
 ---
 
-Comparto el video a la charla que present� en la #netcoreconf del fin de semana. Mil gracias a los organizadores por la oportunidad y sobre todo por el gran evento que hab�is organizado.
+Comparto el video a la charla que presenté en la #netcoreconf del fin de semana. Mil gracias a los organizadores por la oportunidad y sobre todo por el gran evento que habéis organizado.
 
 <!--more-->
 

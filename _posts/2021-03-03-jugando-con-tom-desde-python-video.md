@@ -2,7 +2,7 @@
 layout: post
 title: "Jugando con TOM desde Python (video)"
 date: 2021-03-03
-author: "Nelson L�pez Centeno"
+author: "Nelson López Centeno"
 categories: 
   - "sin-categoria"
 tags: 
@@ -12,7 +12,7 @@ tags:
   - "xmla"
 ---
 
-Comparto el v�deo de la charla que present� el pasado 20 de marzo en la #GPPB2021 en #PowerPlatformMadrid donde utilizo #Python como una herramienta externa de #PowerBI y entre otras cosas genero un PDF con la estructura del modelo o creo un Grupo Calculado desde Python.
+Comparto el vídeo de la charla que presenté el pasado 20 de marzo en la #GPPB2021 en #PowerPlatformMadrid donde utilizo #Python como una herramienta externa de #PowerBI y entre otras cosas genero un PDF con la estructura del modelo o creo un Grupo Calculado desde Python.
 
 Mi agradecimiento a los organizadores y a los sponsors!
 

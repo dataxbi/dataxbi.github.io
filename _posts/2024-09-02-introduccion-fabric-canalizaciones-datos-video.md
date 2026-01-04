@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introducci�n a Fabric - Canalizaciones de datos (v�deo)"
+title: "Introducción a Fabric - Canalizaciones de datos (vídeo)"
 date: 2024-09-02
 author: "Diana y Nelson (dataXbi)"
 categories: 
@@ -10,9 +10,9 @@ tags:
   - "video"
 ---
 
-Otro v�deo de nuestra serie introductoria a Microsoft Fabric, esta vez hablando de Canalizaciones de datos.
+Otro vídeo de nuestra serie introductoria a Microsoft Fabric, esta vez hablando de Canalizaciones de datos.
 
-Esta sesi�n fue pre-grabada, a diferencia de las anteriores que fueron en vivo, y nos ha quedado un v�deo un poco largo, de una 2 horas y 45 minutos de duraci�n, pero que esperamos que lo disfruten porque tiene ejemplos pr�cticos.
+Esta sesión fue pre-grabada, a diferencia de las anteriores que fueron en vivo, y nos ha quedado un vídeo un poco largo, de una 2 horas y 45 minutos de duración, pero que esperamos que lo disfruten porque tiene ejemplos prácticos.
 
 <!--more-->
 

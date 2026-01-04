@@ -10,7 +10,7 @@ tags:
   - "video"
 ---
 
-Comparto el video de la charla "Conjunto de datos de Power BI como fuente de la verdad" que tuve la oportunidad de dar en el evento en l�nea "Anfitrionas: Hablemos de tecnolog�a W4TT" ocurrido los d�as 4 y 5 de diciembre de 2020.
+Comparto el video de la charla "Conjunto de datos de Power BI como fuente de la verdad" que tuve la oportunidad de dar en el evento en línea "Anfitrionas: Hablemos de tecnología W4TT" ocurrido los días 4 y 5 de diciembre de 2020.
 
 <!--more-->
 

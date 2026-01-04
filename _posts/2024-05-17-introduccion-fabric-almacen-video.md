@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introducci�n a Fabric - Almac�n (v�deo)"
+title: "Introducción a Fabric - Almacén (vídeo)"
 date: 2024-05-17
 author: "Diana y Nelson (dataXbi)"
 categories: 
@@ -10,7 +10,7 @@ tags:
   - "video"
 ---
 
-V�deo del directo del jueves 16 de mayo de 2024 donde hicimos una introducci�n al Almac�n (Warehouse) de Fabric.
+Vídeo del directo del jueves 16 de mayo de 2024 donde hicimos una introducción al Almacén (Warehouse) de Fabric.
 
 <!--more-->
 

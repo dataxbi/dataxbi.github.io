@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Saca provecho de CALCULATE, el director de orquesta en expresiones DAX Ana Mª Bisb� y Diana Aguilera (v�deo)"
+title: "Saca provecho de CALCULATE, el director de orquesta en expresiones DAX Ana MÂª Bisbé y Diana Aguilera (vídeo)"
 date: 2021-03-08
 author: "Diana Aguilera Reyna"
 categories: 
@@ -9,7 +9,7 @@ tags:
   - "dax"
 ---
 
-Te comparto el video de la charla que tuve el honor de ofrecer junto a Ana Mar�a Bisb� en la @PowerBIEspanol Virtual Conf 2020 y donde mostramos algunos casos de uso de la funci�n CALCULATE.
+Te comparto el video de la charla que tuve el honor de ofrecer junto a Ana María Bisbé en la @PowerBIEspanol Virtual Conf 2020 y donde mostramos algunos casos de uso de la función CALCULATE.
 
 <!--more-->
 

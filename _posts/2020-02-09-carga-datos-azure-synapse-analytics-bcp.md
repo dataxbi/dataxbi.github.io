@@ -2,7 +2,7 @@
 layout: post
 title: "Carga de datos hacia Azure Synapse Analytics (SQL Data Warehouse) con BCP"
 date: 2020-02-09
-author: "Nelson L�pez Centeno"
+author: "Nelson López Centeno"
 categories: 
   - "sin-categoria"
 tags: 
@@ -10,14 +10,14 @@ tags:
   - "synapse"
 ---
 
-[**bcp**](https://docs.microsoft.com/en-us/sql/tools/bcp-utility) (Bulk Copy Program) es una utilidad que permite insertar datos desde un archivo hacia una tabla SQL, y exportar desde una tabla hac�a un archivo. En esta entrada cargaremos un archivo CSV con unas 2.5 millones de filas hacia una tabla en un almac�n de datos en Azure Synapse Analytics (SQL Data Warehouse).
+[**bcp**](https://docs.microsoft.com/en-us/sql/tools/bcp-utility) (Bulk Copy Program) es una utilidad que permite insertar datos desde un archivo hacia una tabla SQL, y exportar desde una tabla hacía un archivo. En esta entrada cargaremos un archivo CSV con unas 2.5 millones de filas hacia una tabla en un almacén de datos en Azure Synapse Analytics (SQL Data Warehouse).
 
 <!--more-->
 
 El archivo contiene datos de los vuelos comerciales dentro de los Estados Unidos entre julio y octubre de 2019 (fuente: [https://www.transtats.bts.gov/DL\_SelectFields.asp?Table\_ID=236&DB\_Short\_Name=On-Time](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time)).  
-Para crearlo seleccion� algunas de las columnas disponibles, descargu� los archivos CSV para cada mes y despu�s los un� en uno solo.
+Para crearlo seleccioné algunas de las columnas disponibles, descargué los archivos CSV para cada mes y después los uní en uno solo.
 
-Como se puede ver en la siguiente muestra, la primera l�nea del archivo contiene los encabezados, las columnas est�n separadas por coma y las cadenas de caracteres est�n rodeadas por comillas dobles.
+Como se puede ver en la siguiente muestra, la primera línea del archivo contiene los encabezados, las columnas están separadas por coma y las cadenas de caracteres están rodeadas por comillas dobles.
 
 ```
 "FL_DATE","OP_UNIQUE_CARRIER","OP_CARRIER_FL_NUM","ORIGIN_AIRPORT_ID","ORIGIN","ORIGIN_CITY_NAME","ORIGIN_STATE_ABR","DEST_AIRPORT_ID","DEST","DEST_CITY_NAME","DEST_STATE_ABR","CRS_DEP_TIME","DEP_TIME","DEP_DELAY","CRS_ARR_TIME","ARR_TIME","ARR_DELAY","CANCELLED","CANCELLATION_CODE","DIVERTED",
@@ -39,7 +39,7 @@ Como se puede ver en la siguiente muestra, la primera l�nea del archivo contie
   
   
 
-En Azure he creado un recurso Synapse Analytics (SQL Data Warehouse) con el nombre AcmeDW y ahora crear� la tabla StgFlights, para importar los datos.  
+En Azure he creado un recurso Synapse Analytics (SQL Data Warehouse) con el nombre AcmeDW y ahora crearé la tabla StgFlights, para importar los datos.  
 
 ```
 CREATE TABLE [dbo].[StgFlights] 
@@ -73,11 +73,11 @@ WITH
 
 ```
 
-La tabla tiene las mismas columnas que el archivo CSV. Los nombres de las columnas de la tabla y el orden coinciden con los del archivo, aunque no tiene por qu� ser as�.
+La tabla tiene las mismas columnas que el archivo CSV. Los nombres de las columnas de la tabla y el orden coinciden con los del archivo, aunque no tiene por qué ser así.
 
-Para cargar los datos con bcp desde un archivo CSV, es recomendable preparar un [archivo de formato](https://docs.microsoft.com/en-us/sql/relational-databases/import-export/non-xml-format-files-sql-server), que permite definir los separadores de columna y de l�neas y relacionar las columnas del archivo de datos y la tabla.
+Para cargar los datos con bcp desde un archivo CSV, es recomendable preparar un [archivo de formato](https://docs.microsoft.com/en-us/sql/relational-databases/import-export/non-xml-format-files-sql-server), que permite definir los separadores de columna y de líneas y relacionar las columnas del archivo de datos y la tabla.
 
-Con bcp podemos crear un archivo de formato a partir de la tabla, con una l�nea de comandos como esta:  
+Con bcp podemos crear un archivo de formato a partir de la tabla, con una línea de comandos como esta:  
 
 ```
 bcp AcmeDW.dbo.StgFlights format nul -f flights.fmt -c -S xxxxx.database.windows.net -U sqluser -P sqlpassword
@@ -89,9 +89,9 @@ donde:
 - AcmeDW.dbo.StgFlights es el nombre completo de la tabla SQL
 - format null -f indica que queremos crear un archivo de formato con el nombre flights.fmt
 - \-c indica que el archivo de datos tiene caracteres de un solo byte (char), otras opciones disponibles son -w para caracteres unicode (nchar) y -n para formato nativo
-- \-S -U y -P contienen el nombre del servidor SQL, el usuario y la contrase�a
+- \-S -U y -P contienen el nombre del servidor SQL, el usuario y la contraseña
 
-Al ejecutar el comando, se cre� el archivo flights.fmt con el siguiente contenido:
+Al ejecutar el comando, se creó el archivo flights.fmt con el siguiente contenido:
 
 ```
 14.0
@@ -119,7 +119,7 @@ Al ejecutar el comando, se cre� el archivo flights.fmt con el siguiente conten
 
 ```
 
-Ya casi estamos listos para cargar los datos del archivo CSV utilizando bcp, con una l�nea de comandos como esta:  
+Ya casi estamos listos para cargar los datos del archivo CSV utilizando bcp, con una línea de comandos como esta:  
 
 ```
 bcp AcmeDW.dbo.StgFlights in 182553109_T_ONTIME_REPORTING_2019.csv -f flights.fmt  -F 2 -e error.txt -q -S xxxxx.database.windows.net -U sqluser -P sqlpassword
@@ -133,8 +133,8 @@ donde:
 - \-f flights.fmt, es al archivo de formato
 - \-F 2, indica que comience desde la segunda fila, para que ignore la fila de encabezados
 - \-e error.txt, indica que si hay errores se registren en un archivo
-- \-q es para forzar la ejecuci�n del comando QUOTED\_IDENTIFIER to 'ON', porque por defecto bcp ejecuta QUOTED\_IDENTIFIER to 'OFF', pero Azure Synapse no lo soporta en OFF
-- \-S -U y -P contienen el nombre del servidor SQL, el usuario y la contrase�a
+- \-q es para forzar la ejecución del comando QUOTED\_IDENTIFIER to 'ON', porque por defecto bcp ejecuta QUOTED\_IDENTIFIER to 'OFF', pero Azure Synapse no lo soporta en OFF
+- \-S -U y -P contienen el nombre del servidor SQL, el usuario y la contraseña
 
 Sin embargo, si ejecutamos el comando, recibiremos un error como el siguiente
 
@@ -147,7 +147,7 @@ BCP copy in failed
 
 ```
 
-La causa del error est� en la columna 5 del archivo de formato, donde se indica que el separador para cada columna es un tab ("\\t"), y los separadores de filas son el retorno y cambio de l�nea ("\\r\\n"). Pero nuestro archivo de datos CSV utliza la coma (,) como separador de columnas y el cambio de l�nea como separador de fila, por lo que tenemos que cambiar los tabs a comas (",") y el �ltimo separador a ",\\n".
+La causa del error está en la columna 5 del archivo de formato, donde se indica que el separador para cada columna es un tab ("\\t"), y los separadores de filas son el retorno y cambio de línea ("\\r\\n"). Pero nuestro archivo de datos CSV utliza la coma (,) como separador de columnas y el cambio de línea como separador de fila, por lo que tenemos que cambiar los tabs a comas (",") y el último separador a ",\\n".
 
 Si aplicamos estos cambios al archivo de formato y volvemos a ejecutar el comando, recibiremos otro error, como el siguiente
 
@@ -170,9 +170,9 @@ Y si miramos en el archivo error.tx encontraremos errores como estos
 
 ```
 
-Lo que ha pasado es que la columna 2 del archivo CSV se ha le�do como "9E", incluyendo las dobles comillas al inicio y al final, lo que hace un total de 4 caracteres, pero el campo en la tabla es de tipo char(2), por lo que tendr�a que truncar el valor. La soluci�n a este problema es modificar el archivo de formato para incluir las dobles comillas ("\\"") como parte del separador de columna, cuando corresponda.
+Lo que ha pasado es que la columna 2 del archivo CSV se ha leído como "9E", incluyendo las dobles comillas al inicio y al final, lo que hace un total de 4 caracteres, pero el campo en la tabla es de tipo char(2), por lo que tendría que truncar el valor. La solución a este problema es modificar el archivo de formato para incluir las dobles comillas ("\\"") como parte del separador de columna, cuando corresponda.
 
-Despu�s de hacer las modificaciones, el archivo de formato quedar�a asi
+Después de hacer las modificaciones, el archivo de formato quedaría asi
 
 ```
 14.0

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introducci�n a Fabric - Lakehouse 2da parte (v�deo)"
+title: "Introducción a Fabric - Lakehouse 2da parte (vídeo)"
 date: 2024-05-03
 author: "Diana y Nelson (dataXbi)"
 categories: 
@@ -10,7 +10,7 @@ tags:
   - "video"
 ---
 
-V�deo del directo del jueves 2 de mayo de 2024 donde terminamos la introducci�n al Lakehouse de Fabric.
+Vídeo del directo del jueves 2 de mayo de 2024 donde terminamos la introducción al Lakehouse de Fabric.
 
 <!--more-->
 
