@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Tips para organizar las consultas Power Query â€“ Parte 4"
+title: "Tips para organizar las consultas Power Query - Parte 4"
 date: 2023-08-29
 author: "Nelson López Centeno"
 categories: 

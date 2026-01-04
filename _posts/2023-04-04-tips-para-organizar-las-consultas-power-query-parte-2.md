@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Tips para organizar las consultas Power Query â€“ Parte 2"
+title: "Tips para organizar las consultas Power Query - Parte 2"
 date: 2023-04-04
 author: "Diana Aguilera Reyna"
 categories: 
@@ -22,7 +22,7 @@ Los otros artículos de la serie:
 
 Esta técnica fue desarrollada por Rui Romano y en el vídeo de YouTube [Power BI Tips, Tricks & Hacks by Rui Romano](https://www.youtube.com/watch?v=xoR-2NjZCCk&t=1198s) puedes encontrar la explicación del autor.
 
-Para demostrar su uso partiremos del PBIX creado en la primera entrada de la serie, [Tips para organizar las consultas Power Query â€“ Parte 1](https://www.dataxbi.com/blog/2022/12/14/tips-organizar-consultas-power-query-parte1/), donde estuvimos hablando de cuatro pasos que consideramos básicos: parámetros, carpetas, renombrar pasos y añadir descripciones. En este punto te sugiero que si todavía no has leído la entrada, lo hagas ahora antes de continuar con la lectura.
+Para demostrar su uso partiremos del PBIX creado en la primera entrada de la serie, [Tips para organizar las consultas Power Query - Parte 1](https://www.dataxbi.com/blog/2022/12/14/tips-organizar-consultas-power-query-parte1/), donde estuvimos hablando de cuatro pasos que consideramos básicos: parámetros, carpetas, renombrar pasos y añadir descripciones. En este punto te sugiero que si todavía no has leído la entrada, lo hagas ahora antes de continuar con la lectura.
 
 Para recordar en que punto nos habíamos quedado te dejo la siguiente imagen donde puedes ver como quedaron organizadas las consultas en el Editor de Power Query una vez aplicadas las recomendaciones.
 

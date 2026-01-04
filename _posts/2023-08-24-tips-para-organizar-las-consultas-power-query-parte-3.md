@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Tips para organizar las consultas Power Query â€“ Parte 3"
+title: "Tips para organizar las consultas Power Query - Parte 3"
 date: 2023-08-24
 author: "Diana Aguilera Reyna"
 categories: 
@@ -30,7 +30,7 @@ Esta técnica consiste en dividir cada consulta en varias consultas, es decir, a
 
 Esta capa se utiliza para extraer los datos del origen. Las consultas de esta capa requieren de unas pocas transformaciones: conexión a la fuente de datos y navegación fundamentalmente. En algunos casos necesitaremos filtrar las filas y columnas que no sean necesarias. El objetivo de esta capa es tener una tabla con todos los registros del conjunto de datos.
 
-En nuestro caso a esta capa la denominaremos **Originales** y contendrá los datos porque la conexión ya la hemos creado en una consulta separada utilizando la técnica de File Proxy que vimos en la segunda entrada sobre el tema [Tips para organizar las consultas Power Query â€“ Parte 2](https://www.dataxbi.com/blog/2023/04/04/tips-para-organizar-las-consultas-power-query-parte-2/) y a la que hemos llamado Consulta Maestra. Nuestras consultas en esta capa tendrán dos pasos: Origen que es una referencia a la Consulta Maestra y Navegación donde se seleccionan los datos de esa consulta.
+En nuestro caso a esta capa la denominaremos **Originales** y contendrá los datos porque la conexión ya la hemos creado en una consulta separada utilizando la técnica de File Proxy que vimos en la segunda entrada sobre el tema [Tips para organizar las consultas Power Query - Parte 2](https://www.dataxbi.com/blog/2023/04/04/tips-para-organizar-las-consultas-power-query-parte-2/) y a la que hemos llamado Consulta Maestra. Nuestras consultas en esta capa tendrán dos pasos: Origen que es una referencia a la Consulta Maestra y Navegación donde se seleccionan los datos de esa consulta.
 
 #### Capa Staging
 
