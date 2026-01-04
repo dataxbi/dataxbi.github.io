@@ -1,0 +1,353 @@
+---
+layout: post
+title: "pbicmd - CLI para automatizar tareas de Power BI"
+date: 2024-12-30
+author: "Nelson L�pez Centeno"
+categories: 
+  - "sin-categoria"
+tags: 
+  - "python"
+---
+
+**pbicmd** es una peque�a herramienta de l�nea de comandos (CLI) para automatizar algunas tareas de Power BI. Est� hecha con Python y es de c�digo abierto. Tambi�n se distribuye como un ejecutable EXE de Windows para que se pueda utilizar sin tener que instalar Python.
+
+En este post quiero comentar los motivos que tuve para hacerla, resumir lo que puedes hacer con los comandos disponibles, explicar c�mo funciona la autenticaci�n y describir como est� organizado el c�digo y las librer�as que utilizo.
+
+<!--more-->
+
+### Motivos para hacer pbicmd
+
+Hay dos motivos por los que me decid� ha implementar esta herramienta:
+
+1. Tener en un s�lo lugar distintas cosas que he ido probando sobre la utilizaci�n de Python con Power BI
+2. Disponer de una herramienta para incorporar a nuestra propuesta de ETL "low cost" con Fabric
+
+**Sobre el primer punto**, m�s o menos desde el a�o 2020 he estado utilizando Python para trabajar con las APIs de Power BI. En muchas ocasiones lo he hecho por curiosidad, para investigar, y tambi�n a veces he implementado peque�as herramientas ya sea para utilizarlas internamente durante el desarrollo de alg�n proyecto, o para entregarla al cliente como parte del proyecto.
+
+Algunas de estas pruebas las he publicado en nuestro blog: [https://www.dataxbi.com/blog/tag/python/](https://www.dataxbi.com/blog/tag/python/)
+
+**Sobre el segundo punto**, desde el inicio de este a�o 2024 hemos estado promoviendo el uso de lo que hemos llamado ETL "low cost" con Fabric, y nos interesaba contar con una herramienta para automatizar el "encendido" y el "apagado" de una capacidad Fabric y que se pudiera ejecutar desde el ordenador del cliente donde est� instalada la puerta de enlace.
+
+Puedes leer en nuestro blog la serie sobre ETL "low cost" con Fabric: [https://www.dataxbi.com/blog/tag/etl-low-cost-fabric](https://www.dataxbi.com/blog/tag/etl-low-cost-fabric)
+
+### Descargar pbicmd
+
+El repositorio de `pbicmd` en GitHub es este: [https://github.com/dataxbi/pbicmd](https://github.com/dataxbi/pbicmd)
+
+Si trabajas en Windows, para utilizar `pbicmd` no es necesario instalar nada, basta con descargar el fichero ZIP con la �ltima versi�n desde:  
+[https://github.com/dataxbi/pbicmd/releases](https://github.com/dataxbi/pbicmd/releases)  
+y expandirlo para obtener el ejecutable `pbicmd.exe` que es lo �nico que contiene el ZIP.  
+  
+Luego abrimos una l�nea de comando en Windows, por ejemplo, con la aplicaci�n Terminal, y nos cambiamos a la carpeta donde tengamos `pbicmd.exe`.
+
+### Comandos
+
+En la imagen siguiente se muestran los comandos disponibles en **pbicmd**, que son menos de los que quisiera y un poco ecl�cticos 😉, pero que se pueden dividir en 3 categor�as:
+
+1. Comandos que ejecutan consultas DAX en un modelo sem�ntico
+
+3. Comandos que permiten automatizar algunas tareas de Microsoft Fabric
+
+5. Comandos que convierten ficheros CSV o JSON a los formatos Parquet o Delta
+
+![Pantallazo de la ayuda general de pbicmd donde se ven los comandos disponibles en pbicmd](/assets/images/posts/2024-12-30-pbicmd-cli-automatizar-tareas-power-bi/pbicmd-v0.8.0-help.png)
+
+Cada comando tiene varias opciones que est�n documentadas en el [repositorio de GitHub](https://github.com/dataxbi/pbicmd), pero a continuaci�n te hago un resumen de cada uno, con ejemplos de uso.
+
+#### Comando `dax`
+
+Ejecuta una consulta DAX sobre un modelo sem�ntico publicado en el servicio de Power BI y guarda el resultado en un fichero CSV o Parquet. Funciona con una licencia Pro.
+
+**Ejemplo 1**: Ejecuta la consulta DAX guardada en el fichero `consulta.dax` contra el modelo sem�ntico con el ID `dddddddd-dddd-dddd-dddd-dddddddddddd` y guarda el resultado en un fichero CSV.
+
+```
+./pbicmd.exe dax consulta.dax -d dddddddd-dddd-dddd-dddd-dddddddddddd -o c:/datos/resultado_consulta.csv
+
+```
+
+**Ejemplo 2**: Ejecuta la consulta DAX guardada en el fichero `consulta.dax` contra el modelo sem�ntico con el ID `dddddddd-dddd-dddd-dddd-dddddddddddd` y guarda el resultado en un fichero Parquet.
+
+```
+./pbicmd.exe dax consulta.dax -d dddddddd-dddd-dddd-dddd-dddddddddddd -o c:/datos/resultado_consulta.parquet -f parquet
+
+```
+
+  
+  
+
+#### Comando `daxdif`
+
+Compara la ejecuci�n de una misma consulta DAX sobre dos modelos sem�nticos publicados en el servicio de Power BI y guarda las diferencias en un fichero CSV. Para hacer la comparaci�n de valores num�ricos, redondea a 4 lugares decimales y utiliza un valor de tolerancia de 0.01. Tanto el redondeo como la tolerancia se pueden cambiar utilizando par�metros.
+
+**Ejemplo:** Ejecuta la consulta DAX guardada en el fichero `consulta.dax` contra los modelos sem�nticos con los IDs `dddddddd-dddd-dddd-dddd-dddddddddddd` y `eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee` y guarda el resultado de la comparaci�n en el fichero `c:/datos/resultado_comparacion.csv`.
+
+```
+./pbicmd.exe daxdif consulta.dax -d1 dddddddd-dddd-dddd-dddd-dddddddddddd -d2 eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee -od c:/datos/resultado_comparacion.csv
+
+```
+
+  
+  
+
+#### Comando `semdoc`
+
+Genera p�ginas HTML con la documentaci�n de un modelo sem�ntico que est� publicado en el servicio de Power BI.
+
+Para implementar este comando he utilizado las funciones INFO de DAX, y creo que merece un blog aparte.
+
+**Ejemplo:** Genera la documentaci�n del modelo sem�ntico con el ID `dddddddd-dddd-dddd-dddd-dddddddddddd` y la guarda en la carpeta `c:\doc\modelo1`
+
+```
+./pbicmd.exe semdoc dddddddd-dddd-dddd-dddd-dddddddddddd -o c:\doc\modelo1
+
+```
+
+  
+  
+
+#### Comando `fabric`
+
+Tiene varios subcomandos para manejar las capacidades de Microsoft Fabric.
+
+**Ejemplo 1:** Obtiene un listado de las capacidades Fabric en la subscripci�n de Azure con el ID `ssssssss-ssss-ssss-ssss-ssssssssssss`.
+
+```
+./pbicmd.exe fabric capacities -as ssssssss-ssss-ssss-ssss-ssssssssssss
+
+```
+
+**Ejemplo 2:** "Enciende" la capacidad Fabric que tiene el ID `/subscriptions/ssssssss-ssss-ssss-ssss-ssssssssssss/resourceGroups/fabric-etl/providers/Microsoft.Fabric/capacities/fabricetl`.
+
+```
+./pbicmd.exe fabric resume -c /subscriptions/ssssssss-ssss-ssss-ssss-ssssssssssss/resourceGroups/fabric-etl/providers/Microsoft.Fabric/capacities/fabricetl 
+
+```
+
+**Ejemplo 3:** "Apaga" la capacidad Fabric con el ID `/subscriptions/ssssssss-ssss-ssss-ssss-ssssssssssss/resourceGroups/fabric-etl/providers/Microsoft.Fabric/capacities/fabricetl`.
+
+```
+./pbicmd.exe fabric suspend -c /subscriptions/ssssssss-ssss-ssss-ssss-ssssssssssss/resourceGroups/fabric-etl/providers/Microsoft.Fabric/capacities/fabricetl 
+
+```
+
+**Ejemplo 4:** Cambia a F4 el SKU de la capacidad Fabric con el ID `/subscriptions/ssssssss-ssss-ssss-ssss-ssssssssssss/resourceGroups/fabric-etl/providers/Microsoft.Fabric/capacities/fabricetl`.
+
+```
+./pbicmd.exe fabric sku -c /subscriptions/ssssssss-ssss-ssss-ssss-ssssssssssss/resourceGroups/fabric-etl/providers/Microsoft.Fabric/capacities/fabricetl -k F4
+
+```
+
+  
+  
+
+#### Comando `fabriclh`
+
+Utiliza la API de Fabric para manejar los _lakehouses_ de un �rea de trabajo, y tiene 3 subcomandos para listar, crear o borrar.
+
+**Ejemplo 1:** Lista los _lakehouses_ del �rea de trabajo con el ID `wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww`.
+
+```
+./pbicmd.exe fabriclh list -ws wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww
+
+```
+
+**Ejemplo 2:** Crea un _lakehouse_ con el nombre `LH1` en el �rea de trabajo con el ID `wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww`.
+
+```
+./pbicmd.exe fabriclh create -ws wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww -n LH1
+
+```
+
+**Ejemplo 3:** Borra el _lakehouse_ con el ID `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` ubicado en el �rea de trabajo con el ID `wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww`.
+
+```
+./pbicmd.exe fabriclh delete -ws wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww -lh xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
+```
+
+  
+  
+
+#### Comando `fabricwh`
+
+Utiliza la API de Fabric para hacer operaciones de backup/restore en un _warehouse_ de Fabric.
+
+**Ejemplo 1:** Lista los puntos de restauraci�n del _warehouse_ con el ID `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`, ubicado en el �rea de trabajo con el ID `wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww`.
+
+```
+./pbicmd.exe fabricwh listrestpoints -ws wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww -wh xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
+```
+
+**Ejemplo 2:** Crea un punto de restauraci�n en el _warehouse_ con el ID `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`, ubicado en el �rea de trabajo con el ID `wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww`.
+
+```
+./pbicmd.exe fabricwh createrestpoints -ws wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww -wh xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
+```
+
+**Ejemplo 2:** Crea un punto de restauraci�n en el _warehouse_ con el ID `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`, ubicado en el �rea de trabajo con el ID `wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww`.
+
+```
+./pbicmd.exe fabricwh createrestpoints -ws wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww -wh xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
+```
+
+**Ejemplo 3:** Borra el punto de restauraci�n `2024-12-31T11:56:04.4127705Z` del _warehouse_ con el ID `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`, ubicado en el �rea de trabajo con el ID `wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww`.
+
+```
+./pbicmd.exe fabricwh delrestpoints -ws wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww -wh xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -rp 2024-12-31T11:56:04.4127705Z
+
+```
+
+**Ejemplo 4:** Restaura el _warehouse_ con el ID `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`, ubicado en el �rea de trabajo con el ID `wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww` al punto de restauraci�n `2024-12-31T11:56:04.4127705Z`.
+
+```
+./pbicmd.exe fabricwh restore -ws wwwwwwww-wwww-wwww-wwww-wwwwwwwwwwww -wh xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -rp 2024-12-31T11:56:04.4127705Z
+
+```
+
+  
+  
+
+#### Comando `toparquet`
+
+Convierte ficheros CSV o JSON a Parquet. Puede convertir un solo fichero o todos los ficheros de una carpeta que cumplan con un patr�n.
+
+**Ejemplo 1:** Convierte un fichero CSV a Parquet.
+
+```
+./pbicmd.exe toparquet c:\taxis\yellow_tripdata_2021-01.csv -o c:\taxis\parquet\trips_2021-01.parquet
+
+```
+
+**Ejemplo 2:** Convierte a Parquet los ficheros CSV de una carpeta que cumplan con el patr�n `yellow_tripdata_*.csv`
+
+```
+./pbicmd.exe toparquet c:\taxis -p yellow_tripdata_*.csv -o c:\taxis\parquet
+
+```
+
+**Ejemplo 3:** Convierte a Parquet todos los ficheros JSON de la carpeta `c:datos\json`
+
+```
+./pbicmd.exe toparquet c:datos\json -f json
+
+```
+
+  
+  
+
+#### Comando `todelta`
+
+Convierte ficheros CSV o JSON a una tabla Delta. Puede convertir un solo fichero o todos los ficheros de una carpeta que cumplan con un patr�n.
+
+**Ejemplo 1:** Crea una tabla Delta con los datos de un fichero CSV y la guarda en la carpeta `c:\taxis_delta`
+
+```
+./pbicmd.exe todelta c:\taxis\yellow_tripdata_2021-01.csv c:\taxis_delta
+
+```
+
+**Ejemplo 2:** Crea una tabla Delta con los ficheros CSV de la carpeta `c:\taxis` que cumplan con el patr�n `yellow_tripdata_*.csv` y la guarda en la carpeta `c:\taxis_delta`
+
+```
+./pbicmd.exe todelta c:\taxis c:\taxis_delta -p yellow_tripdata_*.csv
+
+```
+
+**Ejemplo 3:** Crea una tabla Delta a partir de los ficheros JSON de la carpeta `c:datos\json` y la guarda en la carpeta `c:\taxis_delta`
+
+```
+./pbicmd.exe todelta c:datos\json c:\datos\json_delta -f json
+
+```
+
+  
+  
+
+#### Comando `delta`
+
+Permite optimizar una tabla Delta.
+
+**Ejemplo 1:** Optimiza la tabla Delta consolidando varios ficheros Parquet peque�os en un fichero m�s grande. Es �til cuando hacemos actualizaciones incrementales con pocos datos. Esta operaci�n puede tardar si hay muchos ficheros que procesar.
+
+```
+./pbicmd.exe delta c:/datos/tabla_delta -do
+
+```
+
+**Ejemplo 2:** Ejecuta la operaci�n VACUUM para eliminar los archivos Parquet que han sido marcados para borrar, respetando el per�odo de retenci�n, que normalmente es de 7 d�as.
+
+```
+./pbicmd.exe delta c:/datos/tabla_delta -dv
+
+```
+
+**Ejemplo 3:** Ejecuta la operaci�n VACUUM, pero sin ning�n per�odo de retenci�n.
+
+```
+./pbicmd.exe delta c:/datos/tabla_delta -dv0
+
+```
+
+### Autenticaci�n
+
+Los comandos que utilizan las APIs de Power BI o de Fabric requieren autenticarse con un usuario que tenga acceso al �rea de trabajo de Power BI o a una subscripci�n de Azure.
+
+Cuando ejecutamos estos comandos manualmente, esta autenticaci�n ser� interactiva, por lo que abrir� el navegador por defecto con la p�gina de autenticaci�n de Microsoft donde debemos indicar nuestras credenciales de la misma manera que lo har�amos si entr�ramos al servicio de Power BI.
+
+Pero si queremos ejecutar `pbicmd` de manera autom�tica, en lugar de utilizar un usuario y una contrase�a hay que crear en Azure una entidad de servicio y luego dar acceso a dicha entidad de servicio a un �rea de trabajo de Power BI.
+
+En esta p�gina de la documentaci�n de Microsoft se describe el proceso (para este caso interesa hasta el paso 4): [https://learn.microsoft.com/es-es/power-bi/developer/embedded/embed-service-principal#step-1---create-a-microsoft-entra-app](https://learn.microsoft.com/es-es/power-bi/developer/embedded/embed-service-principal#step-1---create-a-microsoft-entra-app)
+
+Para autenticarse se emplean tres par�metros de dicha entidad de servicio: el **ID de cliente**, el **ID del inquilino** y el **secreto de cliente**.  
+Estos tres par�metros se deben asignar a las siguientes variables del entorno antes de ejecutar `pbicmd`:
+
+```
+AZURE_CLIENT_ID
+AZURE_CLIENT_SECRET
+AZURE_TENANT_ID
+
+```
+
+Por ejemplo, en PowerShell se puede hacer as�:
+
+```
+$env:AZURE_CLIENT_ID = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+$env:AZURE_CLIENT_SECRET = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+$env:AZURE_TENANT_ID = 'midominio.com'   
+
+```
+
+Si cuando se ejecuta `pbicmd` detecta estas variables del entorno, utilizar� la entidad de servicio en lugar de la autenticaci�n interactiva.
+
+### Organizaci�n del c�digo y librer�as
+
+Para finalizar quiero compartir algunos detalles de la implementaci�n, por si quieres revisar el c�digo, aunque te adelanto que no es nada del otro mundo.
+
+El c�digo fuente est� organizado en dos carpetas: `commands` y `utils`:
+
+1. La carpeta `commands` contiene un fichero por cada comando y el nombre del fichero coincide con el nombre del comando,,por ejemplo, `dax.py`.
+2. La carpeta `utils` contiene ficheros con funciones auxiliares que se utilizan en varios comandos. Por ejemplo, `powerbi_api.py` o `azure_api.py` o `dax_utils.py`
+
+El m�dulo principal est� en el fichero `pbicmd.py` y se encarga de consolidar todos los comandos y mostrar la ayuda general.  
+
+Para la implementaci�n de los comandos he utilizado la excelente librer�a **Typer** ([https://typer.tiangolo.com/](https://typer.tiangolo.com/)) creada por Sebasti�n Ram�rez ([https://tiangolo.com/](https://tiangolo.com/)), el autor de FastAPI ([https://fastapi.tiangolo.com/](https://fastapi.tiangolo.com/)).
+
+En las dos im�genes siguientes se pueden ver el listado de ficheros y un fragmento del c�digo de `pbicmd.py`.
+
+![Imagen que muestra la estructura de ficheros del c�digo fuente de pbicmd](/assets/images/posts/2024-12-30-pbicmd-cli-automatizar-tareas-power-bi/pbicmd-estructura-codigo.png)
+
+![Imagen que muestra un fragmento del modulo principal de pbicmd donde se consolidan los comandos.](/assets/images/posts/2024-12-30-pbicmd-cli-automatizar-tareas-power-bi/pbicmd-modulo-principal-pbicmd.py_.png)
+
+Tambi�n he utilizado otras librer�as:
+
+- [**azure-identity**](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity) para manejar la autenticaci�n en los comandos que utilizan las APIs de Power BI o Fabric
+- [**Requests**](https://requests.readthedocs.io/) para enviar las solicitudes HTTP a las APIs
+- [**pandas**](https://pandas.pydata.org/) para guardar el resultado de una consulta DAX
+- [**pyarrow**](https://arrow.apache.org/) para generar ficheros Parquet
+- [**deltalake**](https://github.com/delta-io/delta-rs) para generar tablas Delta
+- [**rich**](https://github.com/Textualize/rich) para dar formato a los textos de salida
+
+Te doy las gracias si llegaste hasta aqu� y te animo a utilizarlo, o a proponer mejoras o nuevos comandos.😊
