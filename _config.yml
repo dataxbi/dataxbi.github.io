@@ -29,7 +29,7 @@ social:
 # Navegación principal
 navigation:
   - title: "Formación"
-    url: "/formacion/"
+    url: "/taller-introduccion-fabric/"
   - title: "Servicios"
     url: "/servicios/"
   - title: "Blog"
