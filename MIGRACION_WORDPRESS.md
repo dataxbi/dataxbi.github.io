@@ -12,12 +12,19 @@
 
 ## Paso 2: Convertir el XML a archivos Markdown
 
-### Opción A: Usar herramienta online (más fácil)
+### Opción A: Usar wordpress-export-to-markdown (Node.js) - RECOMENDADO
 
-1. Ve a: https://wordpress-to-jekyll.netlify.app/
-2. Sube el archivo XML exportado
-3. Descarga el ZIP con los archivos Markdown
-4. Extrae los archivos en la carpeta `_posts/` de este repositorio
+Si tienes Node.js instalado:
+
+```bash
+npx wordpress-export-to-markdown
+```
+
+El asistente te preguntará:
+1. Ubicación del archivo XML
+2. Carpeta de salida (usa: `_posts`)
+3. Formato de prefijo (selecciona: `year/month/day`)
+4. Si quieres descargar imágenes
 
 ### Opción B: Usar jekyll-import (Ruby)
 
@@ -30,25 +37,24 @@ ruby -r jekyll-import -e 'JekyllImport::Importers::WordpressDotCom.run({
 })'
 ```
 
-### Opción C: Usar wordpress-export-to-markdown (Node.js)
+### Opción C: Conversión manual
 
-Si tienes Node.js instalado:
+Para cada post del XML, crear archivo `.md` en `_posts/`:
 
-```bash
-npx wordpress-export-to-markdown
+1. **Nombre del archivo**: `YYYY-MM-DD-titulo-del-post.md`
+   
+2. **Front matter** al inicio:
+```yaml
+---
+layout: post
+title: "Título del post"
+date: YYYY-MM-DD HH:MM:SS
+author: "dataXbi"
+tags: [tag1, tag2]
+---
 ```
 
-Sigue el asistente interactivo:
-1. Selecciona el archivo XML
-2. Elige la carpeta de salida (_posts)
-3. Configura el formato de fecha
-
-### Opción D: Conversión manual (si son pocos posts)
-
-Para cada post, crear archivo `.md` con:
-- Nombre: `YYYY-MM-DD-titulo-del-post.md`
-- Copiar el contenido del post de WordPress
-- Agregar el front matter YAML
+3. **Contenido**: copiar el HTML o Markdown del post
 
 ---
 
@@ -144,7 +150,7 @@ RedirectMatch 301 ^/blog/(.*)$ https://dataxbi.github.io/blog/$1
 ## Recursos útiles
 
 - [Jekyll Import Docs](https://import.jekyllrb.com/docs/wordpress/)
-- [WordPress to Jekyll converter](https://wordpress-to-jekyll.netlify.app/)
+- [wordpress-export-to-markdown](https://github.com/lonekorean/wordpress-export-to-markdown)
 - [Markdown Guide](https://www.markdownguide.org/)
 
 ---
