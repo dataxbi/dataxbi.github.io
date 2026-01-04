@@ -250,3 +250,13 @@ Cada tarjeta con icono simple y CTA.
 - Usar placeholders claros
 - Cambios pequeños y revisables
 - Respetar siempre esta estructura visual
+
+---
+
+## Flujo de trabajo con Git
+
+Después de completar cualquier tarea que modifique archivos del repositorio:
+1. Hacer commit con un mensaje descriptivo en español
+2. Hacer push automáticamente al repositorio remoto
+
+No esperar a que el usuario lo solicite explícitamente.
