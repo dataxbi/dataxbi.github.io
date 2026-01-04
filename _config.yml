@@ -64,6 +64,11 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-redirect-from
+  - jekyll-paginate
+
+# Paginación
+paginate: 6
+paginate_path: "/blog/page:num/"
 
 # Exclusiones
 exclude:
