@@ -24,8 +24,8 @@ permalink: /quienes-somos/
       
       {% for member in site.team %}
       <div class="card" style="text-align: center;">
-        <div style="width: 150px; height: 150px; margin: 0 auto 1.5rem; background-color: var(--color-bg-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #999;">
-          [Foto]
+        <div style="width: 150px; height: 150px; margin: 0 auto 1.5rem; border-radius: 50%; overflow: hidden;">
+          <img src="{{ site.baseurl }}/assets/images/{{ member.photo }}" alt="{{ member.name }}" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">{{ member.name }}</h2>
         <p style="color: var(--color-text-light); margin-bottom: 1.5rem;">Especialista en Microsoft Fabric</p>

@@ -13,10 +13,12 @@ brand:
 
 # Socios
 team:
-  - name: "Nelson López Centeno"
-    linkedin: "https://www.linkedin.com/in/nelson-lopez-centeno/"
   - name: "Diana Aguilera Reyna"
     linkedin: "https://www.linkedin.com/in/diana-aguilera-reyna/"
+    photo: "foto_diana.png"
+  - name: "Nelson López Centeno"
+    linkedin: "https://www.linkedin.com/in/nelson-lopez-centeno/"
+    photo: "foto_nelson.jpg"
 
 # Redes sociales
 social:
