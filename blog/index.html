@@ -10,7 +10,7 @@ permalink: /blog/
     
     {% if site.posts.size > 0 %}
       <ul class="post-list">
-        {% for post in paginator.posts %}
+        {% for post in site.posts limit: 12 %}
         <li class="post-list-item">
           <div class="post-meta">
             {{ post.date | date: "%d/%m/%Y" }}
@@ -22,23 +22,6 @@ permalink: /blog/
         </li>
         {% endfor %}
       </ul>
-      
-      <!-- Paginación -->
-      {% if paginator.total_pages > 1 %}
-      <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 3rem;">
-        {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="btn btn-secondary">← Anterior</a>
-        {% endif %}
-        
-        <span style="display: flex; align-items: center; color: var(--color-text-light);">
-          Página {{ paginator.page }} de {{ paginator.total_pages }}
-        </span>
-        
-        {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl }}" class="btn btn-secondary">Siguiente →</a>
-        {% endif %}
-      </div>
-      {% endif %}
       
     {% else %}
       <div style="text-align: center; padding: 4rem 0;">
