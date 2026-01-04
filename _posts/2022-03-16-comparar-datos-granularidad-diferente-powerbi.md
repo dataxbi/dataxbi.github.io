@@ -112,7 +112,7 @@ Y dos transformaciones adicionales:
 
 Este es el c�digo Power Query M completo de la consulta:
 
-```
+```n{% raw %}
 let
     Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("jdTBCsIwDIDhd9l5hSRN0nqcgkwEkU1P4vu/htVbm0A8dFD4yVco3es1ERBO8/Rdl33dEhCDsOa2F4DpPXfJ7bRcU1GFlnHbs03GKSxdQm3dt+WRWAULSbEQxRDFUPam1DhBkxgodwnHkJugSQJI/kuO531NUpCyqtizSHwWjSGNIY2hEkMlhkoM1RiqMVQ9qJ9ycCAFk4yQoEkMVPqnBu3zXE7HxJAPStmRfs04Z6B+TfCUEB1Lqm2CW0D3/0B94z3t0SLvrtA25jxf6/0B", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [A�o = _t, Mes = _t, #"Codigo Producto" = _t, Costo = _t]),
     #"Columnas combinadas A�o Mes" = Table.CombineColumns(Table.TransformColumnTypes(Origen, {{"A�o", type text}, {"Mes", type text}}, "es-ES"),{"A�o", "Mes"},Combiner.CombineTextByDelimiter("-", QuoteStyle.None),"Fecha Inicio Mes"),
@@ -128,6 +128,7 @@ let
 in
     #"Columna Medio"
 
+{% endraw %}
 ```
 
 ### Conclusi�n
