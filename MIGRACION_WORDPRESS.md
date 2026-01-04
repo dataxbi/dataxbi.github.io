@@ -19,14 +19,36 @@
 3. Descarga el ZIP con los archivos Markdown
 4. Extrae los archivos en la carpeta `_posts/` de este repositorio
 
-### Opción B: Usar script de conversión (más control)
+### Opción B: Usar jekyll-import (Ruby)
 
-Si tienes Python instalado:
+Si tienes Ruby instalado:
 
 ```bash
-pip install wordpress-to-jekyll-exporter
-python -m wordpress_to_jekyll dataxbi.wordpress.2026-01-04.xml
+gem install jekyll-import
+ruby -r jekyll-import -e 'JekyllImport::Importers::WordpressDotCom.run({
+  "source" => "dataxbi.wordpress.2026-01-04.xml"
+})'
 ```
+
+### Opción C: Usar wordpress-export-to-markdown (Node.js)
+
+Si tienes Node.js instalado:
+
+```bash
+npx wordpress-export-to-markdown
+```
+
+Sigue el asistente interactivo:
+1. Selecciona el archivo XML
+2. Elige la carpeta de salida (_posts)
+3. Configura el formato de fecha
+
+### Opción D: Conversión manual (si son pocos posts)
+
+Para cada post, crear archivo `.md` con:
+- Nombre: `YYYY-MM-DD-titulo-del-post.md`
+- Copiar el contenido del post de WordPress
+- Agregar el front matter YAML
 
 ---
 
