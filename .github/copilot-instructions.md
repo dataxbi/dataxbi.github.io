@@ -213,7 +213,7 @@ Cada tarjeta con icono simple y CTA.
 
 ## Redes sociales (enlaces oficiales)
 - LinkedIn: https://www.linkedin.com/company/dataxbi/
-- YouTube: https://www.dataxbi.com/youtube
+- YouTube: https://www.youtube.com/@dataxbi
 - GitHub: https://github.com/dataxbi/
 - Instagram: https://www.instagram.com/dataxbi/
 - X/Twitter: https://twitter.com/dataXbiTW
