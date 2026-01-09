@@ -36,7 +36,17 @@ description: "Taller práctico en línea y en directo sobre Microsoft Fabric. 12
         
         <div style="text-align: center; padding-top: 1.5rem; border-top: 1px solid var(--color-border);">
           <p style="font-size: 1.125rem; margin-bottom: 0.5rem;"><strong>💰 Precio</strong></p>
-          <p style="font-size: 2rem; font-weight: 700; color: var(--color-primary); margin: 0;">390 €</p>
+          <p style="font-size: 2rem; font-weight: 700; color: var(--color-primary); margin: 0 0 1.5rem 0;">390 €</p>
+          
+          <script async
+            src="https://js.stripe.com/v3/buy-button.js">
+          </script>
+
+          <stripe-buy-button
+            buy-button-id="buy_btn_1Sh7t3LM5LzupVZlbnRrdkmO"
+            publishable-key="pk_live_51KMfDYLM5LzupVZlPxOlAr251eNu9lC5T9sCO8NhBLPcs9HSytrOKhHh0n4JmSMaPqm2c00hBjxJwU10cxq6LHUW00F7IRMw9o"
+          >
+          </stripe-buy-button>
         </div>
       </div>
 
