@@ -153,11 +153,17 @@ description: "Taller práctico en línea y en directo sobre Microsoft Fabric. 12
         <h2 style="color: white; margin-bottom: 1rem;">¿Listo para dominar Microsoft Fabric?</h2>
         <p style="color: white; font-size: 1.25rem; margin-bottom: 2rem;">Solo 10 plazas</p>
         
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="https://buy.stripe.com/3cIaEY1JdfJG4u0dwBcbC02" target="_blank" rel="noopener" class="btn btn-primary" style="background: white; color: var(--color-primary); font-size: 1.25rem; padding: 1rem 2rem;">
-            Inscribirme ahora →
-          </a>
-          
+        <script async
+          src="https://js.stripe.com/v3/buy-button.js">
+        </script>
+
+        <stripe-buy-button
+          buy-button-id="buy_btn_1Sh7t3LM5LzupVZlbnRrdkmO"
+          publishable-key="pk_live_51KMfDYLM5LzupVZlPxOlAr251eNu9lC5T9sCO8NhBLPcs9HSytrOKhHh0n4JmSMaPqm2c00hBjxJwU10cxq6LHUW00F7IRMw9o"
+        >
+        </stripe-buy-button>
+        
+        <div style="margin-top: 2rem;">
           <a href="{{ site.baseurl }}/assets/downloads/taller-fabric-introductorio-brochure.pdf" download class="btn btn-secondary" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white;">
             📥 Descargar brochure (PDF)
           </a>
