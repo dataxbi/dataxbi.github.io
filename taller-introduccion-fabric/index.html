@@ -25,7 +25,7 @@ description: "Taller práctico en línea y en directo sobre Microsoft Fabric. 15
           
           <div style="text-align: center;">
             <p style="font-size: 1.125rem; margin-bottom: 0.5rem;"><strong>⏰ Horario</strong></p>
-            <p style="color: var(--color-text-light);">De 18:00 a 21:00 (hora de España)</p>
+            <p style="color: var(--color-text-light);">De 18:00 a 21:00 (hora de España). 15 horas en 5 sesiones.</p>
           </div>
           
           <div style="text-align: center;">
@@ -38,9 +38,16 @@ description: "Taller práctico en línea y en directo sobre Microsoft Fabric. 15
           <div style="background: #fff3cd; border: 1px solid #ffc107; padding: 1.5rem; border-radius: 8px; color: #856404;">
             <p style="margin: 0; font-size: 1.125rem;"><strong>💶 Precio: 390 euros</strong></p>
             <p style="margin-top: 0.5rem; margin-bottom: 1.5rem;">Bonificable por FUNDAE</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;">
-              <a href="https://buy.stripe.com/7sY5kEevZcxu8KgcsxcbC03" class="cta-button" target="_blank" rel="noopener">Pagar con Stripe</a>
-              <a href="{{ site.baseurl }}/contacto/" class="btn btn-secondary">Contactar si estás interesado</a>
+            <script async
+              src="https://js.stripe.com/v3/buy-button.js">
+            </script>
+
+            <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+              <stripe-buy-button
+                buy-button-id="buy_btn_1T9WGgLM5LzupVZli9sOq81t"
+                publishable-key="pk_live_51KMfDYLM5LzupVZlPxOlAr251eNu9lC5T9sCO8NhBLPcs9HSytrOKhHh0n4JmSMaPqm2c00hBjxJwU10cxq6LHUW00F7IRMw9o"
+              >
+              </stripe-buy-button>
             </div>
           </div>
           
@@ -200,7 +207,13 @@ description: "Taller práctico en línea y en directo sobre Microsoft Fabric. 15
         -->
         
         <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-top: 2rem;">
-          <a href="https://buy.stripe.com/7sY5kEevZcxu8KgcsxcbC03" class="btn btn-primary" target="_blank" rel="noopener">Pagar con Stripe</a>
+          <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <stripe-buy-button
+              buy-button-id="buy_btn_1T9WGgLM5LzupVZli9sOq81t"
+              publishable-key="pk_live_51KMfDYLM5LzupVZlPxOlAr251eNu9lC5T9sCO8NhBLPcs9HSytrOKhHh0n4JmSMaPqm2c00hBjxJwU10cxq6LHUW00F7IRMw9o"
+            >
+            </stripe-buy-button>
+          </div>
           <a href="{{ site.baseurl }}/assets/downloads/taller-fabric-introductorio-brochure-15h.pdf" download class="btn btn-secondary" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid white;">
             📥 Descargar brochure (PDF)
           </a>
@@ -210,8 +223,7 @@ description: "Taller práctico en línea y en directo sobre Microsoft Fabric. 15
       <!-- Información adicional -->
       <div style="text-align: center; padding: 2rem; background: var(--color-bg-light); border-radius: 8px;">
         <h3 style="margin-bottom: 1rem;">¿Tienes dudas?</h3>
-        <p style="margin-bottom: 1.5rem;">Contacta con nosotros y resolveremos todas tus preguntas.</p>
-        <a href="{{ site.baseurl }}/contacto/" class="btn btn-secondary">Contactar</a>
+        <p style="margin-bottom: 0;">Escríbenos y resolveremos todas tus preguntas.</p>
       </div>
 
     </div>
