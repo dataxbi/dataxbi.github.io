@@ -63,31 +63,35 @@ Se prepararon 5 consultas T-SQL, inspiradas en algunas de las consultas de TPC-D
 - **Descripción**: Suma de ventas y conteo de transacciones agrupados por tienda y mes
 - **Operaciones**: `SUM`, `COUNT`, `GROUP BY`, `ORDER BY`
 - **Tablas**: `store_sales`, `date_dim`, `store`
+- **Código**: https://github.com/dataxbi/fablab-sql-endpoint/blob/main/sql/q01_simple_agg.sql
 
 ### Q2 — Join grande (star schema)
 - **Inspiración TPC-DS**: Q19
 - **Descripción**: Ventas totales por producto, marca y clase de tienda, con join a cuatro dimensiones
 - **Operaciones**: `JOIN` × 4, `GROUP BY`, `ORDER BY`, `LIMIT`
 - **Tablas**: `store_sales`, `date_dim`, `item`, `store`, `customer`
+- **Código**: https://github.com/dataxbi/fablab-sql-endpoint/blob/main/sql/q02_large_join.sql
 
 ### Q3 — Top N con filtros selectivos
 - **Inspiración TPC-DS**: Q6 / Q42
 - **Descripción**: Top 10 artículos por ingresos en una categoría y período específicos
 - **Operaciones**: `WHERE` (filtros selectivos en fecha y categoría), `ORDER BY`, `LIMIT`
 - **Tablas**: `store_sales`, `date_dim`, `item`
+- **Código**: https://github.com/dataxbi/fablab-sql-endpoint/blob/main/sql/q03_top_n_selective.sql
 
 ### Q4 — Query compleja tipo TPC-DS real
 - **Inspiración TPC-DS**: Q72 / Q14
 - **Descripción**: Análisis de inventario con CTEs, subconsultas correlacionadas y múltiples uniones
 - **Operaciones**: CTEs (`WITH`), subqueries, `JOIN` × 5+, predicados complejos
 - **Tablas**: `store_sales`, `date_dim`, `item`, `promotion`, `household_demographics`, `customer_demographics`
+- **Código**: https://github.com/dataxbi/fablab-sql-endpoint/blob/main/sql/q04_complex_tpcds.sql
 
 ### Q5 — Función ventana analítica
 - **Inspiración TPC-DS**: Q35 / Q86
 - **Descripción**: Ranking de clientes por gasto total usando funciones de ventana
 - **Operaciones**: `RANK()`, `ROW_NUMBER()`, `PARTITION BY`, `ORDER BY`
 - **Tablas**: `store_sales`, `customer`, `date_dim`
-
+- **Código**: https://github.com/dataxbi/fablab-sql-endpoint/blob/main/sql/q05_window_function.sql
 
 En el repositorio de GitHub se puede revisar el código de estas consultas.
 
@@ -111,19 +115,19 @@ Los resultados de estas pruebas se guardan en un fichero JSON y otro CSV para po
 
 ![Gráfico de columnas con los resultados de la comparación.](/assets/images/posts/2026-04-14-comparacion-rendimiento-lakehouse-sql-endpoint-vs-warehouse/dataXbi-fablab-sql-endpoint-cold-cache-vs-warm-cache.png)
 
-Llegamos al fin a los resultados, que aconsejo tomarlos con cautela al ser un primer intento. Mi intención es ir mejorándolo en futuras iteraciones.
+Llegamos al fin a los resultados, que aconsejo **tomarlos con cautela** al ser un primer intento. Mi intención es ir mejorándolo en futuras iteraciones.
 
 En el gráfico se muestran los resultados de las pruebas en frío a la izquierda y las pruebas en caliente a la derecha. 
 El eje Y es el tiempo que han demorado las consultas T-SQL, por lo que un menor valor indica un mejor resultado. En las pruebas en caliente se usa la mediana de las 3 repeticiones que se hacen de cada consulta T-SQL.
 
-Observando los gráficos se pueden sacar varias conclusiones (que repito, hay que tomar con cautela):
+Observando los gráficos se pueden sacar varias conclusiones:
 - Las ejecuciones en caliente son más rápidas que las iniciales, como era de esperar.
 - En las tablas del *lakehouse* que no tienen particionado ni V-Order las consultas fueron más lentas, en general.
 - El particionado por fecha que se hizo en la tabla de hechos tuvo gran influencia en el rendimiento.
 - Las tablas con V-Order no siempre obtuvieron buenos resultados.
 - Las consultas en el *warehouse* están entre las más lentas.
 
-Este último punto me llama la atención, porque esperaba que las consultas del *warehouse* fueran más rápidas, debido a la gestión automática de las tablas Delta que hace Fabric en el *warehouse*.
+Este último punto me llama la atención, porque esperaba que las consultas del *warehouse* fueran más rápidas, debido a la gestión automática de las tablas Delta que hace Fabric en el *warehouse*. Esto merece más investigación 🤔.
 
 ### Trabajo con GitHub Copilot CLI
 
