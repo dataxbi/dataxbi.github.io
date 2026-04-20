@@ -48,7 +48,7 @@ En el *lakehouse* se han creado tres esquemas y en cada uno se han creado las 8 
 - **partitioned**: Se ha particionado la tabla de hechos por una columna de fecha
 - **vorder**: Se ha aplicado V-Order a todas las tablas
 
-En todos los casos si se ha hecho OPTIMIZE sobre las tablas Delta, para eliminar el problema de los ficheros pequeños.
+En todos los casos sí se ha hecho OPTIMIZE sobre las tablas Delta, para eliminar el problema de los ficheros pequeños.
 
 En el *warehouse* se ha cargado una sola vez cada tabla y no se ha aplicado ninguna configuración adicional.
 
@@ -174,5 +174,7 @@ Otro ejemplo de cambios en la planificación inicial, es que quería probar 4 es
 Cada vez que había un cambio en el plan, se hacía *commit*, por lo que si revisas el historial del repositorio verás estos cambios que he comentado y muchos más.
 
 ![Fragmento de una interacción con GitHub Copilot CLI](/assets/images/posts/2026-04-14-comparacion-rendimiento-lakehouse-sql-endpoint-vs-warehouse/dataxbi-fablab-sql-endpoint-github-copilot-cli.png)
+
+Bueno, ojalá te haya motivado a hacer tus propias pruebas y a contribuir con el repositorio.
 
 
