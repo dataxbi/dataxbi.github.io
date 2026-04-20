@@ -149,12 +149,12 @@ Para comenzar he puesto a GitHub Copilot CLI en modo *plan* (Mayúscula + TAB) y
 También me sugirió generar los datos utilizando la aplicación DSGEN, de TPC-DS, y utilizar los factores de escala SF10, SF500 y SF1000. Cada uno de estos SF implica un conjunto de datos de mayor tamaño, las mismas tablas, pero con más filas. El SF10 se usaría solo para probar que todo funcione bien y las pruebas se harían con los SF más grandes.
 
 Luego de varios intercambios en el modo *plan* acordamos dividir el proyecto en varias etapas:
-  1. Generar los datos de TPC-DS en mi ordenador, en formato CSV
+  1. Generar los datos de TPC-DS localmente, en formato CSV
   2. Crear el *lakehouse* y el *warehouse* en Fabric
   3. Subir los ficheros CSV al *lakehouse* 
   4. Cargar los datos en las tablas del *lakehouse* (un esquema por cada escenario) y el *warehouse*
   5. Ejecutar las pruebas desde mi ordenador
-  6. Visualizar el resultado de las pruebas en mi ordenador
+  6. Visualizar el resultado de las pruebas
 
 Una vez definida la primera versión del plan, le pedí generar un fichero con el nombre especificaciones.md, con los detalles del plan, en español, y que no hiciera nada más hasta que yo lo revisara y lo aprobara.
 
@@ -167,7 +167,7 @@ Después de hacer algunos ajustes en la especificación, continué en el modo *p
 
 Primero hicimos todo el proceso con SF10 y fuimos corrigiendo varios detalles por el camino. Pero al tratar de generar SF500 me doy cuenta de que ocuparía alrededor de 500 GB y que tardaría bastante tiempo en la ingesta. 
 
-Por lo tanto, decidí hacer las pruebas con solo SF100. No obstante, surgió un pequeño reto porque los CSV más grandes tardaban demasiado en subirse a Fabric. La solución fue dividirlos en ficheros más pequeñas y comprimirlos antes de subirlos.
+Por lo tanto, decidí hacer las pruebas con solo SF100. No obstante, surgió un pequeño reto porque los CSV más grandes tardaban demasiado en subirse a Fabric. La solución fue dividirlos en ficheros más pequeños y comprimirlos antes de subirlos.
 
 Otro ejemplo de cambios en la planificación inicial, es que quería probar 4 escenarios con el *lakehouse*: *default*, *partitioned*, *vorder* y *zorder*, pero este último lo tuve que desechar en las pruebas iniciales porque consumía mucho tiempo aplicarle Z Order a las tablas más grandes.
 
