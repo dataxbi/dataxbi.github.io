@@ -374,6 +374,27 @@ section {
   margin: var(--spacing-md) 0;
 }
 
+/* Listas en contenido Markdown */
+.post-content ul,
+.post-content ol,
+.page-content .content ul,
+.page-content .content ol {
+  margin: 0 0 var(--spacing-sm) 1.5rem;
+  padding: 0;
+}
+
+.post-content li,
+.page-content .content li {
+  margin-bottom: 0.35rem;
+}
+
+.post-content li > ul,
+.post-content li > ol,
+.page-content .content li > ul,
+.page-content .content li > ol {
+  margin-top: 0.35rem;
+}
+
 /* Tablas en contenido Markdown */
 .post-content table,
 .page-content .content table {

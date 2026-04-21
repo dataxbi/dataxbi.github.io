@@ -114,7 +114,7 @@ Los resultados de estas pruebas se guardan en un fichero JSON y otro CSV para po
 
 ### Resultados
 
-![Gráfico de columnas con los resultados de la comparación.](/assets/images/posts/2026-04-21-comparacion-rendimiento-lakehouse-sql-endpoint-vs-warehouse/dataXbi-fablab-sql-endpoint-resultados.png)
+![Gráfico de columnas con los resultados de la comparación.](/assets/images/posts/2026-04-21-comparacion-rendimiento-lakehouse-sql-endpoint-vs-warehouse/dataxbi-fablab-sql-endpoint-resultados.png)
 
 Llegamos al fin a los resultados, que aconsejo **tomarlos con cautela** al ser un primer intento. Mi intención es ir mejorándolo en futuras iteraciones.
 
