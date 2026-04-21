@@ -8,6 +8,7 @@ categories:
 tags: 
   - "rendimiento"
   - "fabric"
+  - "github-copilot
 ---
 
 El punto de conexión de análisis de SQL de un *lakehouse* utiliza el mismo motor de consultas T-SQL que el *warehouse* y en principio deberían tener el mismo rendimiento. Pero este rendimiento se puede ver afectado por la manera en que estén organizados los datos en las tablas Delta. 
