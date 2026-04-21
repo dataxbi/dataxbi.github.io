@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Comparación de rendimiento entre el punto de conexión SQL del *lakehouse* y el *warehouse*"
+title: "Comparación de rendimiento entre el punto de conexión SQL del lakehouse y el warehouse"
 date: 2026-04-21
 author: "Nelson López Centeno"
 categories: 
