@@ -64,7 +64,7 @@ Se prepararon 5 consultas T-SQL, inspiradas en algunas de las consultas de TPC-D
 - **Descripción**: Suma de ventas y conteo de transacciones agrupados por tienda y mes
 - **Operaciones**: `SUM`, `COUNT`, `GROUP BY`, `ORDER BY`
 - **Tablas**: `store_sales`, `date_dim`, `store`
-- **Código**: https://github.com/dataxbi/fablab-sql-endpoint/blob/main/sql/q01_simple_agg.sql
+- **Código**: [https://github.com/dataxbi/fablab-sql-endpoint/blob/main/sql/q01_simple_agg.sql](https://github.com/dataxbi/fablab-sql-endpoint/blob/main/sql/q01_simple_agg.sql)
 
 #### Q2 — Join grande (star schema)
 - **Inspiración TPC-DS**: Q19
