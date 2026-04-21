@@ -21,7 +21,7 @@ En este post describo mi primer intento de comparar el rendimiento de consultas 
 
 He contado con la valiosa ayuda de [GitHub Copilot CLI](https://github.com/features/copilot/cli) utilizando principalmente el modelo Opus 4.6 de Claude, por lo que también comento el flujo de trabajo que he utilizado. 
 
-Todo el código, los datos y las instrucciones las he compartido en el repositorio en GitHub https://github.com/dataxbi/fablab-sql-endpoint
+Todo el código, los datos y las instrucciones las he compartido en el repositorio en GitHub [https://github.com/dataxbi/fablab-sql-endpoint](https://github.com/dataxbi/fablab-sql-endpoint)
 
 ### Preparación de los datos
 
@@ -71,28 +71,28 @@ Se prepararon 5 consultas T-SQL, inspiradas en algunas de las consultas de TPC-D
 - **Descripción**: Ventas totales por producto, marca y clase de tienda, con join a cuatro dimensiones
 - **Operaciones**: `JOIN` × 4, `GROUP BY`, `ORDER BY`, `LIMIT`
 - **Tablas**: `store_sales`, `date_dim`, `item`, `store`, `customer`
-- **Código**: https://github.com/dataxbi/fablab-sql-endpoint/blob/main/sql/q02_large_join.sql
+- **Código**: [https://github.com/dataxbi/fablab-sql-endpoint/blob/main/sql/q02_large_join.sql](https://github.com/dataxbi/fablab-sql-endpoint/blob/main/sql/q02_large_join.sql)
 
 #### Q3 — Top N con filtros selectivos
 - **Inspiración TPC-DS**: Q6 / Q42
 - **Descripción**: Top 10 artículos por ingresos en una categoría y período específicos
 - **Operaciones**: `WHERE` (filtros selectivos en fecha y categoría), `ORDER BY`, `LIMIT`
 - **Tablas**: `store_sales`, `date_dim`, `item`
-- **Código**: https://github.com/dataxbi/fablab-sql-endpoint/blob/main/sql/q03_top_n_selective.sql
+- **Código**: [https://github.com/dataxbi/fablab-sql-endpoint/blob/main/sql/q03_top_n_selective.sql](https://github.com/dataxbi/fablab-sql-endpoint/blob/main/sql/q03_top_n_selective.sql)
 
 #### Q4 — Query compleja tipo TPC-DS real
 - **Inspiración TPC-DS**: Q72 / Q14
 - **Descripción**: Análisis de inventario con CTEs, subconsultas correlacionadas y múltiples uniones
 - **Operaciones**: CTEs (`WITH`), subqueries, `JOIN` × 5+, predicados complejos
 - **Tablas**: `store_sales`, `date_dim`, `item`, `promotion`, `household_demographics`, `customer_demographics`
-- **Código**: https://github.com/dataxbi/fablab-sql-endpoint/blob/main/sql/q04_complex_tpcds.sql
+- **Código**: [https://github.com/dataxbi/fablab-sql-endpoint/blob/main/sql/q04_complex_tpcds.sql](https://github.com/dataxbi/fablab-sql-endpoint/blob/main/sql/q04_complex_tpcds.sql)
 
 #### Q5 — Función ventana analítica
 - **Inspiración TPC-DS**: Q35 / Q86
 - **Descripción**: Ranking de clientes por gasto total usando funciones de ventana
 - **Operaciones**: `RANK()`, `ROW_NUMBER()`, `PARTITION BY`, `ORDER BY`
 - **Tablas**: `store_sales`, `customer`, `date_dim`
-- **Código**: https://github.com/dataxbi/fablab-sql-endpoint/blob/main/sql/q05_window_function.sql
+- **Código**: [https://github.com/dataxbi/fablab-sql-endpoint/blob/main/sql/q05_window_function.sql](https://github.com/dataxbi/fablab-sql-endpoint/blob/main/sql/q05_window_function.sql)
 
 En el repositorio de GitHub se puede revisar el código de estas consultas.
 
