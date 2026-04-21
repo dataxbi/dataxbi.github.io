@@ -59,35 +59,35 @@ Por lo que en total hay 4 escenarios para hacer pruebas: 3 con el *lakehouse* y 
 
 Se prepararon 5 consultas T-SQL, inspiradas en algunas de las consultas de TPC-DS
 
-### Q1 — Agregación simple
+#### Q1 — Agregación simple
 - **Inspiración TPC-DS**: Q29
 - **Descripción**: Suma de ventas y conteo de transacciones agrupados por tienda y mes
 - **Operaciones**: `SUM`, `COUNT`, `GROUP BY`, `ORDER BY`
 - **Tablas**: `store_sales`, `date_dim`, `store`
 - **Código**: https://github.com/dataxbi/fablab-sql-endpoint/blob/main/sql/q01_simple_agg.sql
 
-### Q2 — Join grande (star schema)
+#### Q2 — Join grande (star schema)
 - **Inspiración TPC-DS**: Q19
 - **Descripción**: Ventas totales por producto, marca y clase de tienda, con join a cuatro dimensiones
 - **Operaciones**: `JOIN` × 4, `GROUP BY`, `ORDER BY`, `LIMIT`
 - **Tablas**: `store_sales`, `date_dim`, `item`, `store`, `customer`
 - **Código**: https://github.com/dataxbi/fablab-sql-endpoint/blob/main/sql/q02_large_join.sql
 
-### Q3 — Top N con filtros selectivos
+#### Q3 — Top N con filtros selectivos
 - **Inspiración TPC-DS**: Q6 / Q42
 - **Descripción**: Top 10 artículos por ingresos en una categoría y período específicos
 - **Operaciones**: `WHERE` (filtros selectivos en fecha y categoría), `ORDER BY`, `LIMIT`
 - **Tablas**: `store_sales`, `date_dim`, `item`
 - **Código**: https://github.com/dataxbi/fablab-sql-endpoint/blob/main/sql/q03_top_n_selective.sql
 
-### Q4 — Query compleja tipo TPC-DS real
+#### Q4 — Query compleja tipo TPC-DS real
 - **Inspiración TPC-DS**: Q72 / Q14
 - **Descripción**: Análisis de inventario con CTEs, subconsultas correlacionadas y múltiples uniones
 - **Operaciones**: CTEs (`WITH`), subqueries, `JOIN` × 5+, predicados complejos
 - **Tablas**: `store_sales`, `date_dim`, `item`, `promotion`, `household_demographics`, `customer_demographics`
 - **Código**: https://github.com/dataxbi/fablab-sql-endpoint/blob/main/sql/q04_complex_tpcds.sql
 
-### Q5 — Función ventana analítica
+#### Q5 — Función ventana analítica
 - **Inspiración TPC-DS**: Q35 / Q86
 - **Descripción**: Ranking de clientes por gasto total usando funciones de ventana
 - **Operaciones**: `RANK()`, `ROW_NUMBER()`, `PARTITION BY`, `ORDER BY`
@@ -114,7 +114,7 @@ Los resultados de estas pruebas se guardan en un fichero JSON y otro CSV para po
 
 ### Resultados
 
-![Gráfico de columnas con los resultados de la comparación.](/assets/images/posts/2026-04-14-comparacion-rendimiento-lakehouse-sql-endpoint-vs-warehouse/dataXbi-fablab-sql-endpoint-cold-cache-vs-warm-cache.png)
+![Gráfico de columnas con los resultados de la comparación.](/assets/images/posts/2026-04-21-comparacion-rendimiento-lakehouse-sql-endpoint-vs-warehouse/dataXbi-fablab-sql-endpoint-resultados.png)
 
 Llegamos al fin a los resultados, que aconsejo **tomarlos con cautela** al ser un primer intento. Mi intención es ir mejorándolo en futuras iteraciones.
 
@@ -174,7 +174,7 @@ Otro ejemplo de cambios en la planificación inicial, es que quería probar 4 es
 
 Cada vez que había un cambio en el plan, se hacía *commit*, por lo que si revisas el historial del repositorio verás estos cambios que he comentado y muchos más.
 
-![Fragmento de una interacción con GitHub Copilot CLI](/assets/images/posts/2026-04-14-comparacion-rendimiento-lakehouse-sql-endpoint-vs-warehouse/dataxbi-fablab-sql-endpoint-github-copilot-cli.png)
+![Fragmento de una interacción con GitHub Copilot CLI](/assets/images/posts/2026-04-21-comparacion-rendimiento-lakehouse-sql-endpoint-vs-warehouse/dataxbi-fablab-sql-endpoint-github-copilot-cli.png)
 
 Bueno, ojalá te haya motivado a hacer tus propias pruebas y a contribuir con el repositorio.
 

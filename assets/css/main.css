@@ -374,6 +374,28 @@ section {
   margin: var(--spacing-md) 0;
 }
 
+/* Tablas en contenido Markdown */
+.post-content table,
+.page-content .content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--spacing-md) 0;
+}
+
+.post-content th,
+.post-content td,
+.page-content .content th,
+.page-content .content td {
+  border: 1px solid var(--color-border);
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+}
+
+.post-content thead th,
+.page-content .content thead th {
+  background-color: var(--color-bg-light);
+}
+
 /* ============================================
    CTA
    ============================================ */
@@ -474,6 +496,11 @@ section {
   
   .section-content {
     padding: 0 var(--spacing-sm);
+  }
+
+  .post-content,
+  .page-content .content {
+    overflow-x: auto;
   }
   
   .menu-toggle {
