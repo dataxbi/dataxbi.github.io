@@ -26,6 +26,14 @@ document.addEventListener('DOMContentLoaded', function() {
   const postImages = document.querySelectorAll('.post-content img');
   
   if (postImages.length > 0) {
+    // Envolver cada imagen en un contenedor con clase zoom
+    postImages.forEach(img => {
+      const wrapper = document.createElement('span');
+      wrapper.className = 'img-zoomable';
+      img.parentNode.insertBefore(wrapper, img);
+      wrapper.appendChild(img);
+    });
+    
     // Crear elemento lightbox
     const lightbox = document.createElement('div');
     lightbox.className = 'lightbox';

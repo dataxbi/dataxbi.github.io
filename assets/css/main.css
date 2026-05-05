@@ -400,11 +400,37 @@ section {
   border-radius: 4px;
   margin: var(--spacing-md) 0;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: all 0.2s ease;
 }
 
-.post-content img:hover {
-  opacity: 0.9;
+/* Contenedor de imagen con icono de zoom */
+.post-content .img-zoomable {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.post-content .img-zoomable::after {
+  content: '🔍';
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 18px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.post-content .img-zoomable:hover::after {
+  opacity: 1;
+}
+
+.post-content .img-zoomable:hover img {
+  opacity: 0.95;
 }
 
 /* Listas en contenido Markdown */
