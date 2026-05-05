@@ -15,9 +15,9 @@ layout: default
         {% endif %}
       </div>
       {% if page.tags %}
-      <div class="post-tags" style="margin-top: 1rem;">
+      <div class="post-tags">
         {% for tag in page.tags %}
-        <span class="tag">{{ tag }}</span>
+        <a href="/blog/tag/{{ tag | slugify }}/" class="tag">{{ tag }}</a>
         {% endfor %}
       </div>
       {% endif %}
