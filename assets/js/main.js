@@ -26,12 +26,18 @@ document.addEventListener('DOMContentLoaded', function() {
   const postImages = document.querySelectorAll('.post-content img');
   
   if (postImages.length > 0) {
-    // Envolver cada imagen en un contenedor con clase zoom
+    // Envolver cada imagen en un contenedor con clase zoom y añadir icono
     postImages.forEach(img => {
       const wrapper = document.createElement('span');
       wrapper.className = 'img-zoomable';
+      
+      const zoomIcon = document.createElement('span');
+      zoomIcon.className = 'zoom-icon';
+      zoomIcon.textContent = '🔍';
+      
       img.parentNode.insertBefore(wrapper, img);
       wrapper.appendChild(img);
+      wrapper.appendChild(zoomIcon);
     });
     
     // Crear elemento lightbox
@@ -43,14 +49,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightboxImg = lightbox.querySelector('img');
     const closeBtn = lightbox.querySelector('.lightbox-close');
     
-    // Abrir lightbox al hacer clic en una imagen
+    // Función para abrir lightbox
+    function openLightbox(imgSrc, imgAlt) {
+      lightboxImg.src = imgSrc;
+      lightboxImg.alt = imgAlt;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    // Abrir lightbox al hacer clic en una imagen o en su icono
     postImages.forEach(img => {
       img.addEventListener('click', function() {
-        lightboxImg.src = this.src;
-        lightboxImg.alt = this.alt;
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        openLightbox(this.src, this.alt);
       });
+      
+      const zoomIcon = img.nextElementSibling;
+      if (zoomIcon && zoomIcon.classList.contains('zoom-icon')) {
+        zoomIcon.addEventListener('click', function(e) {
+          e.stopPropagation();
+          openLightbox(img.src, img.alt);
+        });
+      }
     });
     
     // Cerrar lightbox
