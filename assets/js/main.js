@@ -28,6 +28,11 @@ document.addEventListener('DOMContentLoaded', function() {
   if (postImages.length > 0) {
     // Envolver cada imagen en un contenedor con clase zoom y añadir icono
     postImages.forEach(img => {
+      // Añadir title para mostrar tooltip con el texto del alt
+      if (img.alt && !img.title) {
+        img.title = img.alt;
+      }
+      
       const wrapper = document.createElement('span');
       wrapper.className = 'img-zoomable';
       
