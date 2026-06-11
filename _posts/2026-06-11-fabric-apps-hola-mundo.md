@@ -46,7 +46,7 @@ Voy a comenzar mostrando paso a paso como crear una Fabric App minimalista, form
 1. Requisitos antes de comenzar:
    1. Que un administrador de Fabric haya activado la opción: **Habilitar elementos de aplicación de Fabric (versión preliminar)**
    2. Tener acceso a un área de trabajo con capacidad Fabric.
-   3. Instalar **Node.js** en tu ordenador, que se puede descargar desde https://nodejs.org/
+   3. Instalar **Node.js** en tu ordenador, que se puede descargar desde [https://nodejs.org/](https://nodejs.org/)
    4. También te recomiendo instalar **[Visual Studio Code](https://code.visualstudio.com/)**, si es que aún no lo tienes.
 
 2. Rayfin trabaja en la línea de comandos, por lo que debes abrir la aplicación **Terminal de Windows**. Una manera de hacerlo es con la combinación de teclas **Windows** + **R** y luego escribe **wt** y pulsa **Enter**.
@@ -142,7 +142,10 @@ Rayfin viene preparado para los agentes de IA generativa, lo que puedes comproba
 
 Para mostrar cómo trabaja, he utilizado [GitHub Copilot CLI](https://github.com/features/copilot/cli) en la carpeta de mi "Hola Mundo" y le he pedido lo siguiente:
 
-> confirma si la última versión de la fabric app está publicada en fabric en qué área de trabajo y con cual urls puedo acceder  
+
+```
+confirma si la última versión de la fabric app está publicada en fabric en qué área de trabajo y con cual urls puedo acceder
+``` 
 
 El resultado lo puedes ver en la imagen, donde se aprecia como: 
 - Ha utilizado la *skill* de Rayfin.
@@ -175,10 +178,10 @@ El primer resultado me dejó impresionado porque el juego funcionó perfectament
 
 Hice algunas iteraciones más para añadirle sonido, incluir un logo y optimizar la carga de los archivos del *front-end*.
 
-Si quieres revisar el código o probarlo por ti mismo, está en GitHub: https://github.com/dataxbi/fabapp-fabric-invaders
-- Este es el archivo AGENTS.md modificado para hacer referencias a la especificación del juego: https://github.com/dataxbi/fabapp-fabric-invaders/blob/main/AGENTS.md
-- Esta es la especificación: https://github.com/dataxbi/fabapp-fabric-invaders/blob/main/docs/SPEC.md
-- Y en el historial de *commits* puedes ver las iteraciones: https://github.com/dataxbi/fabapp-fabric-invaders/commits/main/
+Si quieres revisar el código o probarlo por ti mismo, está en GitHub: [https://github.com/dataxbi/fabapp-fabric-invaders](https://github.com/dataxbi/fabapp-fabric-invaders)
+- Este es el archivo AGENTS.md modificado para hacer referencias a la especificación del juego: [https://github.com/dataxbi/fabapp-fabric-invaders/blob/main/AGENTS.md](https://github.com/dataxbi/fabapp-fabric-invaders/blob/main/AGENTS.md)
+- Esta es la especificación: [https://github.com/dataxbi/fabapp-fabric-invaders/blob/main/docs/SPEC.md](https://github.com/dataxbi/fabapp-fabric-invaders/blob/main/docs/SPEC.md)
+- Y en el historial de *commits* puedes ver las iteraciones: [https://github.com/dataxbi/fabapp-fabric-invaders/commits/main/](https://github.com/dataxbi/fabapp-fabric-invaders/commits/main/)
 
 ### Pokémon Hunter
 
@@ -196,9 +199,9 @@ Cada vez que comienza una partida se llama a la PokéAPI para obtener los URLs c
 
 ![Clip con una partida de Pokémon Hunter](/assets/images/posts/2026-06-11-fabric-apps-hola-mundo/dataXbi-fabric-apps-pokemon-hunter.gif)
 
-Este es el repositorio con el código: https://github.com/dataxbi/fabapp-pokemon-hunter
-- AGENTS.md: https://github.com/dataxbi/fabapp-pokemon-hunter/blob/main/AGENTS.md
-- Especificaciones: https://github.com/dataxbi/fabapp-pokemon-hunter/blob/main/docs/SPEC.md
+Este es el repositorio con el código: [https://github.com/dataxbi/fabapp-pokemon-hunter](https://github.com/dataxbi/fabapp-pokemon-hunter)
+- AGENTS.md: [https://github.com/dataxbi/fabapp-pokemon-hunter/blob/main/AGENTS.md](https://github.com/dataxbi/fabapp-pokemon-hunter/blob/main/AGENTS.md)
+- Especificaciones: [https://github.com/dataxbi/fabapp-pokemon-hunter/blob/main/docs/SPEC.md](https://github.com/dataxbi/fabapp-pokemon-hunter/blob/main/docs/SPEC.md)
 - En la [historia de commits](https://github.com/dataxbi/fabapp-pokemon-hunter/commits/main/) se puede apreciar que para este último ejemplo partí de clonar el repo de **Fabric Invaders**.
 
 Esta API es sencilla y no requiere autenticación, por lo que no hay ninguna dificultad al llamarla desde el front-end. 
