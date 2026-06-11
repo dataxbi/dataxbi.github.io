@@ -3,7 +3,7 @@ layout: post
 title: "Fabric Apps - Hola mundo"
 date: 2026-06-11
 author: "Nelson López Centeno"
-image: /assets/images/posts/2026-06-11-fabric-apps-hola-mundo/dataXbi-fabric-apps-fabric-invaders.gif
+image: /assets/images/posts/2026-06-11-fabric-apps-hola-mundo/dataXbi-fabric-apps-fabric-invaders-inicio.png
 categories: 
   - "sin-categoria"
 tags: 
