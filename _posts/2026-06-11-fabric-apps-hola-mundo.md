@@ -124,7 +124,7 @@ Una vez desplegada, revisa el área de trabajo y debes ver el nuevo elemento **h
 
 Yo he hecho una versión del "Hola Mundo" en la que además de deshabilitar la base de datos, he modificado algunos detallitos del sitio web generado por la plantilla para poner el texto en español y añadir una imagen y un ícono. 
 
-Todo el código lo he compartido en un repositorio de GitHub: https://github.com/dataxbi/fabapp-hello-world
+Todo el código lo he compartido en un repositorio de GitHub: [https://github.com/dataxbi/fabapp-hello-world](https://github.com/dataxbi/fabapp-hello-world)
 
 ![Pantallazo de mi Fabric App Hola Mundo](/assets/images/posts/2026-06-11-fabric-apps-hola-mundo/dataXbi-fabric-apps-hola-mundo.png)
 
@@ -193,7 +193,7 @@ La última Fabric App de este post se llama **Pokémon Hunter** y es una versió
 
 La imagen de la cazadora es estática y la he descargado a la carpeta src/assets de la Fabric App.
 
-Pero las imágenes de los pokémons no están guardadas en la aplicación, sino que se obtienen dinámicamente a través de la [PokéAPI](https://pokeapi.co/).
+Pero las imágenes de los pokémon no están guardadas en la aplicación, sino que se obtienen dinámicamente a través de la [PokéAPI](https://pokeapi.co/).
 
 Cada vez que comienza una partida se llama a la PokéAPI para obtener los URLs con las imágenes de 20 pokémons de manera aleatoria.
 
