@@ -136,7 +136,7 @@ Rayfin viene preparado para los agentes de IA generativa, lo que puedes comproba
 - Archivo [SKILL.md](https://github.com/dataxbi/fabapp-hello-world/blob/main/.agents/skills/rayfin/SKILL.md)
     
     Esta skill puede acceder a la documentación de dos maneras:
-    - Con un **MCP Server**, si se ha configurado: https://github.com/microsoft/rayfin/tree/main/packages/tools/mcp
+    - Con un **MCP Server**, si se ha configurado: [https://github.com/microsoft/rayfin/tree/main/packages/tools/mcp](https://github.com/microsoft/rayfin/tree/main/packages/tools/mcp)
     - Utilizando **Rayfin CLI** en la línea de comandos, que se instala cuando generamos el sitio web utilizando la *template*.
 
 
@@ -204,7 +204,7 @@ Este es el repositorio con el código: [https://github.com/dataxbi/fabapp-pokemo
 - Especificaciones: [https://github.com/dataxbi/fabapp-pokemon-hunter/blob/main/docs/SPEC.md](https://github.com/dataxbi/fabapp-pokemon-hunter/blob/main/docs/SPEC.md)
 - En la [historia de commits](https://github.com/dataxbi/fabapp-pokemon-hunter/commits/main/) se puede apreciar que para este último ejemplo partí de clonar el repo de **Fabric Invaders**.
 
-Esta API es sencilla y no requiere autenticación, por lo que no hay ninguna dificultad al llamarla desde el front-end. 
+Esta API es sencilla y no requiere autenticación, por lo que no hay ninguna dificultad al llamarla desde el *front-end*. 
 
 Pero, para utilizar una API que requiera autenticación hay que ser cuidadoso de no exponer credenciales. 
 
