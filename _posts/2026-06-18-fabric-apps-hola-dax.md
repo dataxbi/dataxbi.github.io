@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Fabric Apps - Hola DAX"
-date: 2026-06-19
+date: 2026-06-20
 author: "Nelson López Centeno"
-image: /assets/images/posts/2026-06-18-fabric-apps-hola-dax/dataXbi-fabric-apps-hola-dax-ventas.mp4
+image: /assets/images/posts/2026-06-18-fabric-apps-hola-dax/dataXbi-fabric-apps-hola-dax-multi-model.png
 categories: 
   - "sin-categoria"
 tags: 
@@ -34,7 +34,11 @@ Pues si ya tienes todos los requisitos, manos a la obra con la nueva Fabric App.
 
 Vamos a detenernos en este punto para echarle un vistazo a lo que ha instalado esta plantilla. ¡Yo flipé con lo que me encontré! 
 
-A primera vista la estructura de carpetas es similar a la creada por la plantilla que utilizamos en el primer post (*Blank App*,). Pero, hay un tesoro frente a nosotros, y para descubrirlo basta con abrir el archivo [AGENTS.md](https://github.com/dataxbi/fabapp-hello-dax/blob/main/AGENTS.md). 
+Por cierto, en esta plantilla **si viene deshabilitada la base de datos**, por lo que no hay que recurrir al truco que vimos en el primer post para evitar desplegar en Fabric una base de datos SQL que no vamos a utilizar.
+
+A primera vista la estructura de carpetas es similar a la creada por la plantilla que utilizamos en el primer post (*Blank App*,). 
+
+Pero, hay un tesoro frente a nosotros, y para descubrirlo basta con abrir el archivo [AGENTS.md](https://github.com/dataxbi/fabapp-hello-dax/blob/main/AGENTS.md). 
 
 En *Blank App* este archivo solo contenía las instrucciones de Rayfin, pero ahora tiene una gran cantidad de instrucciones, dirigidas a implementar una aplicación de datos en el *front-end* que es capaz de ejecutar consultas DAX en modelos semánticos de Power BI / Fabric. 
 
@@ -43,6 +47,9 @@ Aquí tenemos un verdadero *framework* dividido en varias capas y totalmente pre
 AGENTS.md es solo el inicio, porque luego cada capa tiene su propia SKILL.md. Las puedes encontrar en la carpeta [.agents/skills](https://github.com/dataxbi/fabapp-hello-dax/tree/main/.agents/skills). Muchas de estas SKILLS hacen referencia a módulos que se han instalado en la carpeta **node_modules**.
 
 Creo que vale la pena revisar los archivos AGENT y SKILLS para comprender el funcionamiento del *framework*. 
+
+
+![](/assets/images/posts/2026-06-18-fabric-apps-hola-dax/dataXbi-fabric-apps-hola-dax-vscode-data-app.png)
 
 Como punto de partida utiliza la documentación oficial: [https://learn.microsoft.com/es-es/fabric/apps/data-apps-template](https://learn.microsoft.com/es-es/fabric/apps/data-apps-template?wt.mc_id=MVP_367391)
 
@@ -127,15 +134,24 @@ Al final, el agente ejecuta la Fabric App localmente y hace validaciones utiliza
 
 Para desplegar la aplicación completa en Fabric, se lo puedes pedir al agente o, si te quires ahorrar unos tokens, utilizar directamente el comando ``npx rayfin up``.
 
-La primera versión salió bastante bien, pero no cargabas datos en las tablas, así que le pedí a mi agente que revisara y corrigiera.
+La primera versión salió bastante bien, pero no cargaba datos en las tablas, así que le pedí a mi agente que revisara y corrigiera.
 
-También tuve que pedirle que mejorara un poco la parte visual, sobre todo la coherencia, porque puso colores diferentes en los gráficos. Hay que tener en cuenta que en la especificación las únicas indicaciones de diseño que incluí fueron el logo y el URL de nuestro sitio web.
+También tuve que pedirle mejoras en la parte visual, sobre todo en la coherencia, porque utilizó colores diferentes en los gráficos. 
+
+Hay que tener en cuenta que en la especificación las únicas indicaciones de diseño que incluí fueron el logo y el URL de nuestro sitio web.
 
 Ten en cuenta que estos resultados dependen del modelo de LLM que utilices. Aquí he utilizado GPT 5.4.
+
+Así luce la Fabric App:
 
 <video width="100%" autoplay loop muted playsinline>
   <source src="/assets/images/posts/2026-06-18-fabric-apps-hola-dax/dataXbi-fabric-apps-hola-dax-ventas.mp4" type="video/mp4">
 </video>
+
+Todo el código esta en GitHub: [https://github.com/dataxbi/fabapp-hello-dax](https://github.com/dataxbi/fabapp-hello-dax)
+
+#### Cross-filter
+
 
 
 
