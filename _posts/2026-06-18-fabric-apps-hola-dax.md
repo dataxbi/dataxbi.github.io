@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Fabric Apps - Hola DAX"
-date: 2026-06-18
+date: 2026-06-20
 author: "Nelson López Centeno"
 image: /assets/images/posts/2026-06-18-fabric-apps-hola-dax/dataXbi-fabric-apps-fabric-hola-dax-multi-model.png
 categories: 
@@ -125,7 +125,7 @@ Durante la ejecución del plan por parte del agente se puede observar como utili
 
 Y una vez que termina de implementar la aplicación ejecuta comandos como ``npm run test``, ``npm run build`` y ``npm run lint`` que son propios del flujo de desarrollo de aplicaciones front-end.
 
-Al final ejecuta la Fabric App localmente y hace validaciones utilizando Playwright CLI. Aquí me falló algunas veces porque el back-end de la aplicación no se publicaba en Fabric la primera vez.
+Al final, el agente ejecuta la Fabric App localmente y hace validaciones utilizando Playwright CLI. Aquí me falló algunas veces porque el back-end de la aplicación no se publicaba en Fabric la primera vez.
 
 Para desplegar la aplicación completa en Fabric, se lo puedes pedir al agente o, si te quires ahorrar unos tokens, utilizar directamente el comando ``npx rayfin up``.
 
