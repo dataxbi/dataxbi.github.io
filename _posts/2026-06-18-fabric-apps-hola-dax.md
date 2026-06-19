@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Fabric Apps - Hola DAX"
-date: 2026-06-20
+date: 2026-06-19
 author: "Nelson López Centeno"
-image: /assets/images/posts/2026-06-18-fabric-apps-hola-dax/dataXbi-fabric-apps-fabric-hola-dax-multi-model.png
+image: /assets/images/posts/2026-06-18-fabric-apps-hola-dax/dataXbi-fabric-apps-hola-dax-ventas.mp4
 categories: 
   - "sin-categoria"
 tags: 
@@ -80,8 +80,6 @@ Aquí te dejo un resumen de cada capa:
   Responsable de desplegar la aplicación en Fabric, de la autenticación y la configuración del entorno.
 
 Con estas capas no solo podemos implementar la aplicación, sino que además nos permiten descubrir las estructura del modelo semántico y probar las consultas DAX antes de utilizarlas, hacer *testing* una vez implementada la aplicación, y desplegarla en Fabric.
-
-Me he extendido mucho en este recorrido, y todavía no hemos construido nada, así que vamos allá.
 
 ### Hola DAX
 
