@@ -406,10 +406,20 @@ section {
   transition: all 0.2s ease;
 }
 
+.post-content video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  margin: var(--spacing-md) 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
 /* Contenedor de imagen con icono de zoom */
 .post-content .img-zoomable {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
   max-width: 100%;
 }
 
@@ -437,8 +447,24 @@ section {
   transform: scale(1.05);
 }
 
-.post-content .img-zoomable:hover img {
+.post-content .img-zoomable:hover img,
+.post-content .img-zoomable:hover video {
   opacity: 0.95;
+}
+
+.post-content blockquote,
+.page-content .content blockquote {
+  margin: var(--spacing-md) 0;
+  padding: 1rem 1.25rem;
+  background-color: #f1f3f5;
+  border-left: 4px solid #c8d0d8;
+  border-radius: 4px;
+  color: var(--color-text);
+}
+
+.post-content blockquote p:last-child,
+.page-content .content blockquote p:last-child {
+  margin-bottom: 0;
 }
 
 /* Listas en contenido Markdown */
@@ -505,6 +531,23 @@ section {
   object-fit: contain;
   border-radius: 4px;
   cursor: default;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+}
+
+.lightbox-content img,
+.lightbox-content video {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 4px;
 }
 
 .lightbox-close {

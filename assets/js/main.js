@@ -22,76 +22,90 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  // Lightbox para imágenes en posts
-  const postImages = document.querySelectorAll('.post-content img');
-  
-  if (postImages.length > 0) {
-    // Envolver cada imagen en un contenedor con clase zoom y añadir icono
-    postImages.forEach(img => {
-      // Añadir title para mostrar tooltip con el texto del alt
-      if (img.alt && !img.title) {
-        img.title = img.alt;
+  // Lightbox para imágenes y vídeos en posts
+  const zoomableMedia = document.querySelectorAll('.post-content img, .post-content video');
+
+  if (zoomableMedia.length > 0) {
+    zoomableMedia.forEach(media => {
+      if (media.closest('.img-zoomable')) {
+        return;
       }
-      
+
+      if (media.tagName === 'IMG' && media.alt && !media.title) {
+        media.title = media.alt;
+      }
+
       const wrapper = document.createElement('span');
       wrapper.className = 'img-zoomable';
-      
+
       const zoomIcon = document.createElement('span');
       zoomIcon.className = 'zoom-icon';
       zoomIcon.textContent = '🔍';
-      
-      img.parentNode.insertBefore(wrapper, img);
-      wrapper.appendChild(img);
+
+      media.parentNode.insertBefore(wrapper, media);
+      wrapper.appendChild(media);
       wrapper.appendChild(zoomIcon);
     });
-    
-    // Crear elemento lightbox
+
     const lightbox = document.createElement('div');
     lightbox.className = 'lightbox';
-    lightbox.innerHTML = '<span class="lightbox-close">&times;</span><img src="" alt="">';
+    lightbox.innerHTML = '<span class="lightbox-close">&times;</span><div class="lightbox-content"></div>';
     document.body.appendChild(lightbox);
-    
-    const lightboxImg = lightbox.querySelector('img');
+
+    const lightboxContent = lightbox.querySelector('.lightbox-content');
     const closeBtn = lightbox.querySelector('.lightbox-close');
-    
-    // Función para abrir lightbox
-    function openLightbox(imgSrc, imgAlt) {
-      lightboxImg.src = imgSrc;
-      lightboxImg.alt = imgAlt;
+
+    function openLightbox(media) {
+      lightboxContent.innerHTML = '';
+
+      let expandedMedia;
+
+      if (media.tagName === 'VIDEO') {
+        expandedMedia = media.cloneNode(true);
+        expandedMedia.controls = true;
+        expandedMedia.autoplay = true;
+        expandedMedia.loop = media.loop;
+        expandedMedia.muted = false;
+        expandedMedia.playsInline = true;
+      } else {
+        expandedMedia = document.createElement('img');
+        expandedMedia.src = media.currentSrc || media.src;
+        expandedMedia.alt = media.alt || '';
+      }
+
+      lightboxContent.appendChild(expandedMedia);
       lightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
-    
-    // Abrir lightbox al hacer clic en una imagen o en su icono
-    postImages.forEach(img => {
-      img.addEventListener('click', function() {
-        openLightbox(this.src, this.alt);
+
+    zoomableMedia.forEach(media => {
+      media.addEventListener('click', function() {
+        openLightbox(this);
       });
-      
-      const zoomIcon = img.nextElementSibling;
+
+      const zoomIcon = media.nextElementSibling;
       if (zoomIcon && zoomIcon.classList.contains('zoom-icon')) {
         zoomIcon.addEventListener('click', function(e) {
           e.stopPropagation();
-          openLightbox(img.src, img.alt);
+          openLightbox(media);
         });
       }
     });
-    
-    // Cerrar lightbox
+
     function closeLightbox() {
       lightbox.classList.remove('active');
+      lightboxContent.innerHTML = '';
       document.body.style.overflow = '';
     }
-    
+
     closeBtn.addEventListener('click', closeLightbox);
-    
+
     lightbox.addEventListener('click', function(e) {
       if (e.target === lightbox) {
         closeLightbox();
       }
     });
-    
-    // Cerrar con tecla Escape
+
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && lightbox.classList.contains('active')) {
         closeLightbox();
