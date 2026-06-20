@@ -60,7 +60,7 @@ Aquí te dejo un resumen de cada capa:
   Responsable de estructurar la aplicación en páginas y de la navegación.
 
 - **Presentación visual**:
-  Responsable de dibujar gráficos, tablas, panels y otros controles de UI, además de capturar las interacciones del usuario. Utiliza [Vega-Lite](https://vega.github.io/vega-lite/) para los gráficos y el componente [@microsoft/fabric-datagrid](https://www.npmjs.com/package/@microsoft/fabric-datagrid) para las tablas.
+  Responsable de dibujar gráficos, tablas, paneles y otros controles de UI, además de capturar las interacciones del usuario. Utiliza [Vega-Lite](https://vega.github.io/vega-lite/) para los gráficos y el componente [@microsoft/fabric-datagrid](https://www.npmjs.com/package/@microsoft/fabric-datagrid) para las tablas.
 
 - **Orquestación de página**:
   Responsable de conectar la UI con la lógica de filtrado, selección y parámetros que alimentan las consultas DAX.
@@ -81,7 +81,7 @@ Aquí te dejo un resumen de cada capa:
   Responsable de los colores, la tipografía, el *branding* y la consistencia visual entre componentes.
 
 - **Validación y calidad**:
-  Responsable de comprobar el comportamiento de la aplicación. Hace tests y validación real utilizando [Playwright CLI](https://playwright.dev/agent-cli/introduction).
+  Responsable de comprobar el comportamiento de la aplicación. Realiza tests y validación real utilizando [Playwright CLI](https://playwright.dev/agent-cli/introduction).
 
 - **Plataforma · Rayfin / Fabric embed**:
   Responsable de desplegar la aplicación en Fabric, de la autenticación y la configuración del entorno.
@@ -90,9 +90,9 @@ Con estas capas no solo podemos implementar la aplicación, sino que además nos
 
 ### Hola DAX
 
-Como hemos visto, este *framework* está muy bien preparado para los agentes de IA. Así que vamos a continuar implementando el cuadro de mando de ventas con la ayuda de de nuestra herramienta de IA preferida. En mi caso he utilizado indistintamente [GitHub Copilot CLI](https://github.com/features/copilot/cli) y [Codex CLI](https://developers.openai.com/codex/cli).
+Como hemos visto, este *framework* está muy bien preparado para los agentes de IA. Así que vamos a continuar implementando el cuadro de mando de ventas con la ayuda de nuestra herramienta de IA preferida. En mi caso he utilizado indistintamente [GitHub Copilot CLI](https://github.com/features/copilot/cli) y [Codex CLI](https://developers.openai.com/codex/cli).
 
-Antes de continuar, te recomiendo que le pidas al agente que **compruebe si se puede conectar a Fabric** y con cuál usuario lo está haciendo, para evitar que esté utilizando un usuario incorrecto. O si ya te has conectado antes a Fabric o a Azure desde la terminal, lo puedes tú mismo con el comando `az login`
+Antes de continuar, te recomiendo que le pidas al agente que **compruebe si se puede conectar a Fabric** y con cuál usuario lo está haciendo, para evitar que esté utilizando un usuario incorrecto. O si ya te has conectado antes a Fabric o a Azure desde la terminal, lo puedes comprobar tú mismo con el comando `az login`
 
 Cuando trabajo con agentes de IA en un proyecto lo primero que hago es configurar GIT, para mantener la historia de todos los cambios. Y he hecho un primer commit justo después de instalar la plantilla. 
 
@@ -104,7 +104,7 @@ Para elaborar el plan para una *Data App* (esta plantilla) hay que tener en cuen
 2. **Fase de diseño de la aplicación**: Diseño de la experiencia de usuario (UX) de la aplicación web antes de escribir cualquier código de ejecución.
 3. **Fase de desarrollo de la aplicación**: Implementación de los componentes  que obtienen los datos en tiempo de ejecución utilizando el SDK de Fabric.
 
-Como parte del plan hay que indicar el URL del modelo semántico en Fabric, que tiene un formato como este:
+Como parte del plan hay que indicar la URL del modelo semántico en Fabric, que tiene un formato como este:
 https://app.fabric.microsoft.com/onelake/details/id-area-trabajo/dataset/id-modelo-semantico
 
 Esta información le servirá a los agentes para para configurar la aplicación.
@@ -116,6 +116,8 @@ El modelo de ventas con el que trabajé tiene la estructura mostrada en la sigui
 Como punto de partida del plan utilicé un *prompt* bastante abierto: 
 
 > Construir una Fabric App ejecutiva sobre el modelo semántico Ventas (https://app.fabric.microsoft.com/onelake/details/id-area-trabajo/dataset/id-modelo-semantico) para ofrecer una visión resumida del negocio y páginas de detalle que permitan profundizar en los principales ejes comerciales. 
+
+Las únicas indicaciones de diseño que incluí fueron que utilizara el logo y el tono visual de nuestro sitio web, y que los formatos de fechas y números fueran los de España.
 
 El agente se encargó de conectarse al modelo para descubrir las tablas y medidas y me propuso un informe con cuatro páginas: 
 - Overview
@@ -134,15 +136,13 @@ Al final, el agente ejecuta la Fabric App localmente y hace validaciones utiliza
 
 Para desplegar la aplicación completa en Fabric, se lo puedes pedir al agente o, si te quires ahorrar unos tokens, utilizar directamente el comando ``npx rayfin up``.
 
-Ten en cuenta que, por ahora, **las Fabric Apps que se conectan a un modelo semántico solo se pueden abrir dentro del portal Fabric**, no lo pueden hacer de manera independiente como vimos en el primer post. Esto se debe a que la autenticación está implementada de una manera que depende de funcionalidad presente en el portal de Fabric. Pero esto debe cambiar e el futuro.
+Ten en cuenta que, por ahora, **las Fabric Apps que se conectan a un modelo semántico solo se pueden abrir dentro del portal Fabric**, no lo pueden hacer de manera independiente como vimos en el primer post. Esto se debe a que la autenticación está implementada de una manera que depende de funcionalidad presente en el portal de Fabric. Pero esto debe cambiar en el futuro.
 
 La primera versión de la aplicación salió bastante bien, pero no cargaba datos en las tablas, así que le pedí a mi agente que revisara y corrigiera.
 
 También tuve que pedirle mejoras en la parte visual, sobre todo en la coherencia, porque utilizó colores diferentes en los gráficos. 
 
-Hay que tener en cuenta que en la especificación las únicas indicaciones de diseño que incluí fueron el logo y el URL de nuestro sitio web.
-
-Ten en cuenta que estos resultados dependen del modelo de LLM que utilices. Aquí he utilizado GPT 5.4.
+Pienso que estos resultados iniciales podrían haber sido mejores si hubiera incluido más detalles de diseño en la especificación y hubiera utilizado otro modelo de LLM. Aquí he utilizado GPT 5.4.
 
 Así luce la Fabric App:
 
@@ -152,14 +152,13 @@ Así luce la Fabric App:
 
 Todo el código esta en GitHub: [https://github.com/dataxbi/fabapp-hello-dax](https://github.com/dataxbi/fabapp-hello-dax)
 
-
 #### Cross-filter
 
-Aún no hemos terminado con este primer ejemplo, porque esta versión inicial **no tiene cross-filter** entre los visuales de una página, a pasar de que el *framework* de *Data App* viene preparado para implementarlo. Aquí también influyen la especificación, donde no mencioné que implementará cross-filter, y el modelo de LLM que estoy utilizando.
+Aún no hemos terminado con este primer ejemplo, porque esta versión inicial **no tiene *cross-filter*** entre los visuales, a pasar de que el *framework* de *Data App* viene preparado para implementarlo. Aquí también influyen dos factores: 1) la especificación, donde no mencioné que se implementara *cross-filter*, y 2) el modelo de LLM que estoy utilizando.
 
-Bueno, para implementarlo seguí el mismo proceso de planificar primero e que el agente implemente después, enriqueciendo mi propuesta con las sugerencia del modelo LLM. 
+Bueno, para implementarlo seguí el mismo proceso de planificar primero y que el agente implemente después, enriqueciendo mi propuesta con las sugerencia del modelo LLM. 
 
-El resultado puedes verlo a continuación. Además de aplicar el filtrado entre visuales, hay un panel en la página que muestran los filtros aplicados y con botones para limpiarlos.
+El resultado puedes verlo a continuación. Además de aplicar el filtrado entre visuales, hay un panel en la página que muestra los filtros aplicados y botones para limpiarlos.
 
 <video width="100%" autoplay loop muted playsinline>
   <source src="/assets/images/posts/2026-06-20-fabric-apps-hola-dax/dataXbi-fabric-apps-hola-dax-cross-filter.mp4" type="video/mp4">
@@ -169,17 +168,17 @@ El resultado puedes verlo a continuación. Además de aplicar el filtrado entre 
 
 Llegados a este punto, me vine un poco arriba, y quise ir un poco más allá, para poner a prueba los límites de lo que se puede hacer.
 
-Con la ayuda de los agentes de IA he implementado un panel de filtros dinámicos, que trabaja de esta manera:
+Con la ayuda de los agentes de IA he implementado un panel de filtros dinámicos, que trabaja de la siguiente manera:
 - Al cargar la página utiliza las funciones INFO de DAX para encontrar las dimensiones del modelo semántico, descartando las tablas y columnas ocultas.
 - Agrupa cada dimensión por su tipo de dato: texto, numérico o fecha.
 - Crea en la página web un panel de filtros con un control específico para cada tipo de dato.
   - Para los números utiliza un rango con mínimo y máximo.
   - Para las fechas utiliza un rango con calendarios.
-  - Para los textos utiliza una lista desplegable, pero los datos solo se cargan en el momento e que se abre ese filtro.
+  - Para los textos utiliza una lista desplegable, pero los datos solo se cargan en el momento en que se abre el filtro.
   
 Para implementar estos controles le pedí en la especificación que utilizara la librería de código abierto [shadcn/ui](https://ui.shadcn.com/docs). 
 
-Con esto he extendido la funcionalidad que trae el *framework* de la la plantilla Data App, pero solo para esta aplicación.
+Con esto he extendido la funcionalidad que trae el *framework* de la plantilla Data App, pero solo para esta aplicación.
 
 Para reutilizar este panel de filtros dinámico en otros proyectos, debería haber creado una SKILL. Algo que no descarto hacer en el futuro.
 
@@ -200,7 +199,7 @@ Esta vez fuí más explicito al crear la especificación:
 
 >Construir una Fabric App ejecutiva sobre el modelo semántico de P&L para ofrecer una visión del resultado económico del negocio con una tabla detallada y tarjetas resumen, usando componentes propios en React.
 
-Puedes leer el texto completo aquí: [https://github.com/dataxbi/fabapp-dax-finance/blob/main/docs/especificacion-informe-pl.md](https://github.com/dataxbi/fabapp-dax-finance/blob/main/docs/especificacion-informe-pl.md). Que es el resultado de varias iteraciones.
+Puedes leer el texto completo aquí: [https://github.com/dataxbi/fabapp-dax-finance/blob/main/docs/especificacion-informe-pl.md](https://github.com/dataxbi/fabapp-dax-finance/blob/main/docs/especificacion-informe-pl.md), que es el resultado de varias iteraciones.
 
 El fragmento de la especificación termina diciendo "... usando componentes propios..." y si abres la especificación completa verás que en el stack de visuales se indica que para la tabla utilice un componente propio basado en [@tanstack/react-table](https://tanstack.com/table/latest) que es una librería de código abierto.
 
@@ -221,7 +220,7 @@ Y el resultado lo puedes ver en este clip:
 
 El tercer ejemplo lo que tiene de novedoso es que combina datos y métricas de los dos modelos de ventas y de finanzas, para hacer un cuadro de mando ejecutivo para la dirección general.
 
-De nuevo cree un nuevo proyecto con la plantilla Data App, y seguí el mismo proceso: plan - especificación - implementación - testing - despliegue a través de varias iteraciones.
+De nuevo creé un proyecto con la plantilla Data App, y seguí el mismo proceso: plan - especificación - implementación - testing - despliegue a través de varias iteraciones.
 
 La especificación final comienza de esta manera:
 
@@ -244,7 +243,7 @@ Y el resultado lo puedes ver en este clip:
 
 ### Continuará...
 
-Este post me ha salido un poco largo, así que te agradezco si has llegado hast aquí. 👏
+Este post me ha salido un poco largo, así que te agradezco si has llegado hasta aquí. 👏
 
 Mi objetivo ha sido mostrar las posibilidades de la plantilla Data App y cómo se puede personalizar y extender. 
 
