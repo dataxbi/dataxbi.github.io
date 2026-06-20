@@ -22,12 +22,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  // Lightbox para imágenes y vídeos en posts
+  // Lightbox para imágenes, vídeos e iframes de YouTube en posts
   const zoomableMedia = document.querySelectorAll('.post-content img, .post-content video');
+  const youtubeEmbeds = document.querySelectorAll('.post-content iframe[src*="youtube.com/embed/"], .post-content iframe[src*="youtu.be/"]');
 
-  if (zoomableMedia.length > 0) {
-    zoomableMedia.forEach(media => {
-      if (media.closest('.img-zoomable')) {
+  if (zoomableMedia.length > 0 || youtubeEmbeds.length > 0) {
+    const allZoomables = [...zoomableMedia, ...youtubeEmbeds];
+
+    allZoomables.forEach(media => {
+      if (media.closest('.img-zoomable, .video-embed-zoomable')) {
         return;
       }
 
@@ -35,12 +38,14 @@ document.addEventListener('DOMContentLoaded', function() {
         media.title = media.alt;
       }
 
-      const wrapper = document.createElement('span');
-      wrapper.className = 'img-zoomable';
+      const wrapper = document.createElement(media.tagName === 'IFRAME' ? 'div' : 'span');
+      wrapper.className = media.tagName === 'IFRAME' ? 'video-embed-zoomable' : 'img-zoomable';
 
-      const zoomIcon = document.createElement('span');
+      const zoomIcon = document.createElement('button');
+      zoomIcon.type = 'button';
       zoomIcon.className = 'zoom-icon';
       zoomIcon.textContent = '🔍';
+      zoomIcon.setAttribute('aria-label', 'Ampliar contenido');
 
       media.parentNode.insertBefore(wrapper, media);
       wrapper.appendChild(media);
@@ -67,6 +72,15 @@ document.addEventListener('DOMContentLoaded', function() {
         expandedMedia.loop = media.loop;
         expandedMedia.muted = false;
         expandedMedia.playsInline = true;
+      } else if (media.tagName === 'IFRAME') {
+        expandedMedia = media.cloneNode(true);
+        expandedMedia.width = '1280';
+        expandedMedia.height = '720';
+        expandedMedia.setAttribute('allowfullscreen', 'allowfullscreen');
+        expandedMedia.setAttribute(
+          'allow',
+          media.getAttribute('allow') || 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+        );
       } else {
         expandedMedia = document.createElement('img');
         expandedMedia.src = media.currentSrc || media.src;
@@ -82,7 +96,9 @@ document.addEventListener('DOMContentLoaded', function() {
       media.addEventListener('click', function() {
         openLightbox(this);
       });
+    });
 
+    allZoomables.forEach(media => {
       const zoomIcon = media.nextElementSibling;
       if (zoomIcon && zoomIcon.classList.contains('zoom-icon')) {
         zoomIcon.addEventListener('click', function(e) {
