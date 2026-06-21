@@ -366,6 +366,49 @@ section {
   margin-bottom: var(--spacing-sm);
 }
 
+.tag-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.tag-page-header p {
+  margin-bottom: 0;
+}
+
+.tag-sort-button {
+  flex: 0 0 auto;
+  padding: 0.55rem 0.9rem;
+  font: inherit;
+  font-size: var(--font-size-small);
+  font-weight: 600;
+  color: var(--color-primary);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-primary);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tag-sort-button:hover,
+.tag-sort-button:focus {
+  color: white;
+  background-color: var(--color-primary);
+  outline: none;
+}
+
+.blog-item {
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.blog-item:last-child {
+  border-bottom: none;
+}
+
 /* Tags de posts */
 .post-tags {
   margin-top: var(--spacing-sm);
@@ -758,6 +801,15 @@ section {
   .post-content,
   .page-content .content {
     overflow-x: auto;
+  }
+
+  .tag-page-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .tag-sort-button {
+    width: 100%;
   }
   
   .menu-toggle {

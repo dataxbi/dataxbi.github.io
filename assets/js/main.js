@@ -21,6 +21,38 @@ document.addEventListener('DOMContentLoaded', function() {
       menuToggle.setAttribute('aria-expanded', 'false');
     });
   });
+
+  const sortButton = document.querySelector('[data-sort-posts]');
+  const sortablePosts = document.querySelector('[data-sortable-posts]');
+
+  if (sortButton && sortablePosts) {
+    sortButton.addEventListener('click', function() {
+      const nextOrder = sortButton.dataset.sortOrder === 'desc' ? 'asc' : 'desc';
+      const posts = [...sortablePosts.querySelectorAll('.blog-item')];
+
+      posts.sort((firstPost, secondPost) => {
+        const firstDate = firstPost.dataset.postDate || '';
+        const secondDate = secondPost.dataset.postDate || '';
+        const firstIndex = Number(firstPost.dataset.postIndex || 0);
+        const secondIndex = Number(secondPost.dataset.postIndex || 0);
+
+        if (firstDate === secondDate) {
+          return firstIndex - secondIndex;
+        }
+
+        return nextOrder === 'asc'
+          ? firstDate.localeCompare(secondDate)
+          : secondDate.localeCompare(firstDate);
+      });
+
+      posts.forEach(post => sortablePosts.appendChild(post));
+      sortButton.dataset.sortOrder = nextOrder;
+      sortButton.setAttribute('aria-pressed', nextOrder === 'asc');
+      sortButton.textContent = nextOrder === 'asc'
+        ? 'Fecha: antiguos primero'
+        : 'Fecha: recientes primero';
+    });
+  }
   
   // Lightbox para imágenes, vídeos e iframes de YouTube en posts
   const zoomableMedia = document.querySelectorAll('.post-content img, .post-content video');

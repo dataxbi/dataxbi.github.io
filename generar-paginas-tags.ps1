@@ -30,7 +30,23 @@ foreach ($tagEntry in $sortedTags) {
     $tagSlug = $tag.ToLower() -replace '\s+', '-'
     $fileName = "$tagPagesPath\$tagSlug.html"
     $arrowSymbol = [char]0x2192
-    $template = "---`nlayout: page`ntitle: `"Posts sobre $tag`"`npermalink: /blog/tag/$tagSlug/`n---`n`n<div class=`"blog-list`">`n    <p>Mostrando <strong>$tag</strong> ($count posts) - <a href=`"/blog/`"> Volver al blog</a></p>`n    {% for post in site.posts %}{% if post.tags contains `"$tag`" %}<article class=`"blog-item`"><h2><a href=`"{{ post.url }}`">{{ post.title }}</a></h2><p class=`"post-meta`">{{ post.date | date: `"%d/%m/%Y`" }}{% if post.author %} $arrowSymbol {{ post.author }}{% endif %}</p><p>{{ post.excerpt | strip_html | truncate: 200 }}</p><a href=`"{{ post.url }}`">Leer mas</a></article>{% endif %}{% endfor %}`n</div>"
+    $template = @"
+---
+layout: page
+title: "Posts sobre $tag"
+permalink: /blog/tag/$tagSlug/
+---
+
+<div class="blog-list">
+    <div class="tag-page-header">
+        <p>Mostrando <strong>$tag</strong> ($count posts) - <a href="/blog/"> Volver al blog</a></p>
+        <button type="button" class="tag-sort-button" data-sort-posts data-sort-order="desc" aria-pressed="false">Fecha: recientes primero</button>
+    </div>
+    <div class="tag-post-list" data-sortable-posts>
+    {% for post in site.posts %}{% if post.tags contains "$tag" %}<article class="blog-item" data-post-date="{{ post.date | date: "%Y-%m-%d" }}" data-post-index="{{ forloop.index0 }}"><h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2><p class="post-meta">{{ post.date | date: "%d/%m/%Y" }}{% if post.author %} $arrowSymbol {{ post.author }}{% endif %}</p><p>{{ post.excerpt | strip_html | truncate: 200 }}</p><a href="{{ site.baseurl }}{{ post.url }}">Leer mas</a></article>{% endif %}{% endfor %}
+    </div>
+</div>
+"@
     $utf8NoBom = New-Object System.Text.UTF8Encoding $false
     [System.IO.File]::WriteAllText($fileName, $template, $utf8NoBom)
     Write-Host "  $fileName" -ForegroundColor Green
