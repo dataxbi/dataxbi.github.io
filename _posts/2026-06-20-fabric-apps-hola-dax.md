@@ -100,7 +100,7 @@ Cuando trabajo con agentes de IA en un proyecto lo primero que hago es configura
 
 Lo siguiente que hago es elaborar un plan inicial, con la ayuda de la herramienta de IA, que guardo en un archivo de especificaciones y en archivos con las diferentes tareas. Una vez que las especificaciones están revisadas y corregidas por mí, hago un commit, y le pido al agente que lo implemente. 
 
-Para elaborar el plan para una *Data App* (esta plantilla) hay que tener en cuenta el** flujo de trabajo que seguirán los agentes**, como se describe en el archivo AGENTS, y que tiene tres fases:
+Para elaborar el plan para una *Data App* (esta plantilla) hay que tener en cuenta el **flujo de trabajo que seguirán los agentes**, como se describe en el archivo AGENTS, y que tiene tres fases:
 
 1. **Fase de diseño y creación de consultas**: Exploración de los datos y validar las consultas. En esta fase todavía no se escribe código de la aplicación.
 2. **Fase de diseño de la aplicación**: Diseño de la experiencia de usuario (UX) de la aplicación web antes de escribir cualquier código de ejecución.
@@ -222,7 +222,7 @@ Y el resultado lo puedes ver en este clip:
 
 El tercer ejemplo lo que tiene de novedoso es que combina datos y métricas de los dos modelos de ventas y de finanzas, para hacer un cuadro de mando ejecutivo para la dirección general.
 
-De nuevo creé un proyecto con la plantilla Data App, y seguí el mismo proceso: plan - especificación - implementación - testing - despliegue a través de varias iteraciones.
+De nuevo creé un proyecto con la plantilla Data App, y seguí el mismo proceso: **plan - especificación - implementación - testing - despliegue**, a través de varias iteraciones.
 
 La especificación final comienza de esta manera:
 
