@@ -92,7 +92,9 @@ Con estas capas no solo podemos implementar la aplicación, sino que además nos
 
 Como hemos visto, este *framework* está muy bien preparado para los agentes de IA. Así que vamos a continuar implementando el cuadro de mando de ventas con la ayuda de nuestra herramienta de IA preferida. En mi caso he utilizado indistintamente [GitHub Copilot CLI](https://github.com/features/copilot/cli) y [Codex CLI](https://developers.openai.com/codex/cli).
 
-Antes de continuar, te recomiendo que le pidas al agente que **compruebe si se puede conectar a Fabric** y con cuál usuario lo está haciendo, para evitar que esté utilizando un usuario incorrecto. O si ya te has conectado antes a Fabric o a Azure desde la terminal, lo puedes comprobar tú mismo con el comando `az login`
+Antes de continuar, te recomiendo que le pidas al agente que **compruebe si se puede conectar a Fabric** y con cuál usuario lo está haciendo, para evitar que esté utilizando un usuario incorrecto. 
+
+O también lo puedes hacer directamente en la terminal con el comando `npx rayfin login status` y así te ahorras un par de tokens. 
 
 Cuando trabajo con agentes de IA en un proyecto lo primero que hago es configurar GIT, para mantener la historia de todos los cambios. Y he hecho un primer commit justo después de instalar la plantilla. 
 
