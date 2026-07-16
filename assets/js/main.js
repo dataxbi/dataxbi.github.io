@@ -26,8 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const sortablePosts = document.querySelector('[data-sortable-posts]');
 
   if (sortButton && sortablePosts) {
-    sortButton.addEventListener('click', function() {
-      const nextOrder = sortButton.dataset.sortOrder === 'desc' ? 'asc' : 'desc';
+    // Función para ordenar los posts
+    function sortPosts(order) {
       const posts = [...sortablePosts.querySelectorAll('.blog-item')];
 
       posts.sort((firstPost, secondPost) => {
@@ -40,17 +40,37 @@ document.addEventListener('DOMContentLoaded', function() {
           return firstIndex - secondIndex;
         }
 
-        return nextOrder === 'asc'
+        return order === 'asc'
           ? firstDate.localeCompare(secondDate)
           : secondDate.localeCompare(firstDate);
       });
 
       posts.forEach(post => sortablePosts.appendChild(post));
-      sortButton.dataset.sortOrder = nextOrder;
-      sortButton.setAttribute('aria-pressed', nextOrder === 'asc');
-      sortButton.textContent = nextOrder === 'asc'
+      sortButton.dataset.sortOrder = order;
+      sortButton.setAttribute('aria-pressed', order === 'asc');
+      sortButton.textContent = order === 'asc'
         ? 'Fecha: antiguos primero'
         : 'Fecha: recientes primero';
+    }
+
+    // Leer parámetro de URL al cargar la página
+    const urlParams = new URLSearchParams(window.location.search);
+    const ordenParam = urlParams.get('orden');
+    
+    // Si hay parámetro en la URL, aplicar ese orden
+    if (ordenParam === 'asc' || ordenParam === 'desc') {
+      sortPosts(ordenParam);
+    }
+
+    // Evento click en el botón
+    sortButton.addEventListener('click', function() {
+      const nextOrder = sortButton.dataset.sortOrder === 'desc' ? 'asc' : 'desc';
+      sortPosts(nextOrder);
+      
+      // Opcional: actualizar la URL sin recargar la página
+      const newUrl = new URL(window.location);
+      newUrl.searchParams.set('orden', nextOrder);
+      window.history.pushState({}, '', newUrl);
     });
   }
   
