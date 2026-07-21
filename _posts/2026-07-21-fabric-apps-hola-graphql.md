@@ -260,7 +260,7 @@ Para el último ejemplo de hoy voy a combinar en una *Fabric App* un modelo sem�
 
 El modelo semántico es el mismo que utilicé en el segundo post de esta serie para implementar un informe de PyG. La base de datos SQL almacena posibles escenarios de aumento o disminución de los ingresos y los gastos, expresados en valores porcentuales. La *Fabric App* permite gestionar los escenarios (crear, modificar, borrar), y comprobar cómo influyen en el informe de PyG, calculando la variación con el estado actual. Esto ocurre de forma interactiva y con un tiempo de respuesta bajo, por lo que la experiencia del usuario es muy buena.
 
-> Como esta *Fabric App* accede a un modelo semántico, hay que abrirla dentro del portal de Fabric.
+> Esta *Fabric App* solo se puede abrir dentro del portal de Fabric porque accede a un modelo semántico.
 
 <video width="100%" autoplay loop muted playsinline>
   <source src="/assets/images/posts/2026-07-21-fabric-apps-hola-graphql/dataXbi-fabric-app-what-if.mp4" type="video/mp4">
