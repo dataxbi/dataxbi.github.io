@@ -3,7 +3,7 @@ layout: post
 title: "Fabric Apps - Hola GraphQL"
 date: 2026-07-21
 author: "Nelson López Centeno"
-image: /assets/images/posts/2026-07-21-fabric-apps-hola-graphql/dataXbi-fabric-apps-what-if.png
+image: /assets/images/posts/2026-07-21-fabric-apps-hola-graphql/dataXbi-fabric-app-what-if.png
 categories: 
   - "sin-categoria"
 tags: 
