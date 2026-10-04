@@ -283,5 +283,5 @@ Así luce una aplicación implementada con esta planilla:
 
 Gracias por llegar hasta aquí. 😊
 
-La serie continuará, en la próxima entrega hablaré del consumo de CUs de la capacidad Fabric..
+La serie continuará, en la próxima entrega hablaré del consumo de CUs de la capacidad Fabric.
 
