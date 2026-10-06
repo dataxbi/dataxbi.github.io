@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Mi primera Fabric App (vídeo)"
+title: "Mi primera App en Fabric (vídeo)"
 date: 2026-10-06
 author: "Nelson López Centeno"
 image: /assets/images/posts/2026-10-06-mi-primera-fabric-app-video/Global_Fabric_Day_2026_Online_Fabric_Apps.png
