@@ -9,6 +9,7 @@ categories:
 tags: 
   - "fabric-apps"
   - "fabric"
+  - "video"
 ---
 
 Vídeo de la charla "Mi primera App en Fabric" impartida en el evento Global Fabric Day 2026 Online, organizado por el Fabric User Group ESP (FUGE)

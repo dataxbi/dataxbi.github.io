@@ -1,0 +1,15 @@
+---
+layout: page
+title: "Posts sobre fabric-skills"
+permalink: /blog/tag/fabric-skills/
+---
+
+<div class="blog-list">
+    <div class="tag-page-header">
+        <p>Mostrando <strong>fabric-skills</strong> (1 posts) - <a href="/blog/"> Volver al blog</a></p>
+        <button type="button" class="tag-sort-button" data-sort-posts data-sort-order="desc" aria-pressed="false">Fecha: recientes primero</button>
+    </div>
+    <div class="tag-post-list" data-sortable-posts>
+    {% for post in site.posts %}{% if post.tags contains "fabric-skills" %}<article class="blog-item" data-post-date="{{ post.date | date: "%Y-%m-%d" }}" data-post-index="{{ forloop.index0 }}"><h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2><p class="post-meta">{{ post.date | date: "%d/%m/%Y" }}{% if post.author %} → {{ post.author }}{% endif %}</p><p>{{ post.excerpt | strip_html | truncate: 200 }}</p><a href="{{ site.baseurl }}{{ post.url }}">Leer mas</a></article>{% endif %}{% endfor %}
+    </div>
+</div>
