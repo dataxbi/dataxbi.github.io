@@ -16,4 +16,4 @@ Vídeo de la charla "Agent Skills en Microsoft Fabric" impartida en el evento Te
 
 <!--more-->
 
-<iframe src="https://youtu.be/jz_NIDDTz90?si=medz2oek3iiAj9Da" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+<iframe src="https://www.youtube.com/embed/jz_NIDDTz90?si=cTYtZqAfPHCXDV0R" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
