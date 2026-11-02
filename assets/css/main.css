@@ -266,6 +266,16 @@ section {
   margin: 0 auto;
 }
 
+.workshop-registration {
+  padding: 2rem;
+}
+
+.workshop-payment {
+  width: 100%;
+  max-width: 20rem;
+  min-height: 44px;
+}
+
 .section-hero {
   text-align: center;
   padding: var(--spacing-xl) 0;
@@ -801,6 +811,10 @@ section {
   
   .section-content {
     padding: 0 var(--spacing-sm);
+  }
+
+  .workshop-registration {
+    padding: 1rem;
   }
 
   .post-content,
