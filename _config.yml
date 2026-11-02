@@ -33,7 +33,7 @@ navigation:
   - title: "Servicios"
     url: "/servicios/"
   - title: "Formación"
-    url: "/taller-introduccion-fabric/"
+    url: "/taller-de-powerbi-a-microsoft-fabric/"
   - title: "Libro"
     url: "/libro-introduccion-fabric/"
   - title: "Blog"

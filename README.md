@@ -26,7 +26,7 @@ website/
 │   └── js/            # JavaScript
 ├── blog/              # Página listado del blog
 ├── libro-introduccion-fabric/  # Página del libro
-├── taller-introduccion-fabric/ # Página del taller
+├── taller-de-powerbi-a-microsoft-fabric/ # Página del taller
 ├── servicios/         # Página de servicios
 ├── quienes-somos/     # Página quiénes somos
 ├── contacto/          # Página de contacto
