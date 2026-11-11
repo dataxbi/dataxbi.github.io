@@ -8,6 +8,7 @@ categories:
 tags: 
   - "powerbi"
   - "powerquery"
+  - "organizar-consultas-pq"
 ---
 
 Esta es la segunda entrada de una serie de cuatro sobre buenas prácticas para la organización de las consultas en el editor de Power Query. En esta ocasión hablaremos de "File Proxy", una técnica que consiste en añadir una capa de consultas que permite separar las consultas de los orígenes de datos. En esta entrada veremos como aplicar esta técnica y que beneficios nos reporta.

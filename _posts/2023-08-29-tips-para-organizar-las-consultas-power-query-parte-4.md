@@ -8,6 +8,7 @@ categories:
 tags: 
   - "powerbi"
   - "powerquery"
+  - "organizar-consultas-pq"
 ---
 
 Esta es la cuarta y última entrada del tema de buenas prácticas para la organización de las consultas en el editor de Power Query, donde mostraremos cómo crear una función personalizada para agrupar varios pasos de una consulta.

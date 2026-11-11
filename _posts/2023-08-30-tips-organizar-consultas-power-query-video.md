@@ -8,6 +8,7 @@ categories:
 tags: 
   - "powerbi"
   - "powerquery"
+  - "organizar-consultas-pq"
   - "video"
 ---
 

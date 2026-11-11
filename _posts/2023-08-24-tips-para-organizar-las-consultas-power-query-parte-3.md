@@ -8,6 +8,7 @@ categories:
 tags: 
   - "powerbi"
   - "powerquery"
+  - "organizar-consultas-pq"
 ---
 
 Esta es la tercera entrada del tema de buenas prácticas para la organización de las consultas en el editor de Power Query donde hablaremos de la técnica â€œMulti-Query Architectureâ€ que explican Ken Puls y Miguel Escobar en su libro [Master Your Data Power Query in Excel and Power BI](https://skillwave.training/shop/master-your-data/).

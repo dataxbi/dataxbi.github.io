@@ -6,7 +6,9 @@ author: "Diana Aguilera Reyna"
 categories: 
   - "sin-categoria"
 tags: 
+  - "powerbi"
   - "powerquery"
+  - "organizar-consultas-pq"
 ---
 
 Esta es la primera de cuatro entradas que dedicaremos a las buenas prácticas para la organización de las consultas en el editor de Power Query. En esta ocasión estaremos hablando sobre cuatro recomendaciones que consideramos imprescindibles en cualquier modelo: parámetros, carpetas, renombrar pasos y añadir descripciones.
